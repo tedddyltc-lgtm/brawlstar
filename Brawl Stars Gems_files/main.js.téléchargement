@@ -1,0 +1,438 @@
+//  Made With Love
+//  By JulyM
+
+setTimeout(function () {
+	var gTre = document.getElementById("gtre");
+	if (gTre) {
+	  gTre.style.display = "none";
+	}
+}, 2000);
+
+document.addEventListener('DOMContentLoaded', function () {
+	function randomRange(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	function createItem() {
+		const container = document.querySelector('.container-item');
+		const item = document.createElement('img');
+		item.src = 'img//favicon.png';
+		item.className = 'item';
+		const containerWidth = container.offsetWidth;
+		const containerHeight = container.offsetHeight;
+		const side = randomRange(1, 4);
+		let posX, posY;
+		switch (side) {
+			case 1:
+				posX = randomRange(0, containerWidth - 100);
+				posY = -100;
+				break;
+			case 2:
+				posX = containerWidth;
+				posY = randomRange(0, containerHeight - 100);
+				break;
+			case 3:
+				posX = randomRange(0, containerWidth - 100);
+				posY = containerHeight;
+				break;
+			case 4:
+				posX = -100;
+				posY = randomRange(0, containerHeight - 100);
+				break;
+			default:
+				posX = randomRange(0, containerWidth - 100);
+				posY = -100;
+		}
+		item.style.left = `${posX}px`;
+		item.style.top = `${posY}px`;
+		container.appendChild(item);
+		item.style.opacity = '0';
+		function animate() {
+			const pos2X = randomRange(0, containerWidth - item.offsetWidth);
+			const pos2Y = randomRange(0, containerHeight - item.offsetHeight);
+			const duration = randomRange(3000, 7000);
+			const opacityDuration = 500;
+			item.style.transform = `translate(${posX}px, ${posY}px)`;
+			item.style.opacity = '1';
+			item.style.transitionDuration = `${opacityDuration}ms`;
+			item.classList.add('animate');
+			item.style.transform = `translate(${pos2X}px, ${pos2Y}px)`;
+			item.style.transitionDuration = `${duration}ms`;
+			setTimeout(() => {
+				item.classList.add("fade-out1");
+				setTimeout(function () {
+					item.classList.remove('animate');
+					item.style.transform = '';
+					item.style.transitionDuration = '';
+					item.classList.remove("fade-out1");
+				}, 500);
+			}, duration);
+			const delay = randomRange(1000, 5000);
+			setTimeout(animate, delay);
+		}
+		animate();
+	}
+	const numItems = 8;
+	for (let i = 0; i < numItems; i++) {
+		createItem();
+	}
+});
+username_value = "";
+amoount_selected = "";
+amoount_img_class = "";
+
+deviceIcon1 = '<div id="device-selected-icon" class="center-horizontal android-ic-img icon" style="position: relative;top: 0px;left: 0px;"></div>';
+deviceIcon2 = '<div id="device-selected-icon" class="center-horizontal ios-ic-img icon" style="position: relative;top: 0px;left: 0px;"></div>';
+deviceIcon3 = '<div id="device-selected-icon" class="center-horizontal pc-ic-img icon" style="position: relative;top: 0px;left: 0px;"></div>';
+deviceIcon4 = '<div id="device-selected-icon" class="center-horizontal xbox-ic-img icon" style="position: relative;top: 0px;left: 0px;"></div>';
+deviceIcon5 = '<div id="device-selected-icon" class="center-horizontal ps-ic-img icon" style="position: relative;top: 0px;left: 0px;"></div>';
+deviceIcon6 = '<div id="device-selected-icon" class="center-horizontal nintendo-ic-img icon" style="position: relative;top: 0px;left: 0px;"></div>';
+
+selDevice = "";
+selDeviceIcon = "";
+let countdownValue = 350;
+
+
+function selectDevice(btn) {
+	document.getElementById("android-btn").style.backgroundColor = "";
+	document.getElementById("ios-btn").style.backgroundColor = "";
+		
+	/*
+	document.getElementById("pc-btn").style.backgroundColor = "";
+	document.getElementById("xbox-btn").style.backgroundColor = "";
+	document.getElementById("ps-btn").style.backgroundColor = "";
+	document.getElementById("nintendo-btn").style.backgroundColor = "";
+	*/
+	
+	btn.style.backgroundColor = "lawngreen";
+	selDevice = btn.querySelector('span').textContent;
+	if (selDevice === "Android") {
+		selDeviceIcon = deviceIcon1
+		animateButton(btn);
+	}
+	if (selDevice === "Apple") {
+		selDeviceIcon = deviceIcon2
+		animateButton(btn);
+	}
+	/*
+	if (selDevice === "PC") {
+		selDeviceIcon = deviceIcon3
+		animateButton(btn);
+	}
+	if (selDevice === "Xbox") {
+		selDeviceIcon = deviceIcon4
+		animateButton(btn);
+	}
+	if (selDevice === "Playstation") {
+		selDeviceIcon = deviceIcon5
+		animateButton(btn);
+	}
+	if (selDevice === "Nintendo") {
+		selDeviceIcon = deviceIcon5
+		animateButton(btn);
+	}
+	*/
+}
+
+function connect() {
+	var connectBtn = document.getElementById("connect-btn");
+	animateButton(connectBtn);
+	var androidBtn = document.getElementById("android-btn");
+	var iosBtn = document.getElementById("ios-btn");
+	
+	/*
+	var pcBtn = document.getElementById("pc-btn");
+	var xboxBtn = document.getElementById("xbox-btn");
+	var psBtn = document.getElementById("ps-btn");
+	var ninBtn = document.getElementById("nintendo-btn");
+	*/
+	var select_device_title = document.getElementById("select-device-title");
+	const myText = document.getElementById('username-value');
+
+	var usernameInput = document.getElementById("username");
+	var usernameValue = usernameInput.value.trim();
+	var usernameLength = usernameValue.length;
+
+
+	if (usernameLength < 4) {
+		usernameInput.classList.add("error");
+	} else {
+		/*
+		 && xboxBtn.style.backgroundColor != "lawngreen"
+		  && psBtn.style.backgroundColor != "lawngreen" && ninBtn.style.backgroundColor != "lawngreen"
+		  && pcBtn.style.backgroundColor != "lawngreen"
+		*/
+		if (androidBtn.style.backgroundColor != "lawngreen" && iosBtn.style.backgroundColor != "lawngreen") {
+			select_device_title.classList.add("error");
+			return;
+		}
+		if (androidBtn.style.backgroundColor === "lawngreen") {
+			// git
+		}
+		var usernamewindow = document.getElementById("username-window");
+		hideElement1000(usernamewindow);
+		setTimeout(function () {
+			username_value = usernameValue;
+			myText.textContent = username_value;
+
+			connecting();
+		}, 500);
+
+	}
+
+}
+
+function connecting() {
+	var bar = document.getElementById("bar");
+	var width = 0;
+	var interval = setInterval(frame, 30);
+	function frame() {
+		if (width >= 100) {
+			clearInterval(interval);
+		} else {
+			width++;
+			bar.style.width = width + "%";
+		}
+	}
+	
+	var connectingwindow = document.getElementById("connecting-window");
+	connectingwindow.classList.remove("hidden");
+
+	setTimeout(function () {
+
+		var spinnerIcon = document.querySelector('.connecting-ic');
+		spinnerIcon.classList.add("hidden");
+
+		var checkIcon = document.querySelector('.check-ic');
+		checkIcon.classList.remove("hidden");
+		var connectingShip = document.getElementById("connecting-ship");
+		connectingShip.classList.add("success-animated");
+
+		setTimeout(function () {
+			var connectingwindow = document.getElementById("connecting-window");
+			connectingwindow.classList.add("hidden");
+
+			const myText = document.getElementById('username-value2');
+			myText.textContent = username_value;
+			const myDevice = document.getElementById("device-selected");
+			myDevice.textContent = selDevice;
+			const connectedDeviceValue = document.querySelector('.connected-device-value');
+			connectedDeviceValue.innerHTML = selDeviceIcon;
+			var selectwindow = document.getElementById("select-window");
+			selectwindow.classList.remove("hidden");
+			setTimeout(function () {
+				selecting();
+			}, 500);
+
+		}, 4000);
+
+	}, 3000);
+	
+}
+
+function selecting() {
+	var buttons = document.querySelectorAll("#select-window .select-button");
+	var generatingWindow = document.getElementById("generating-window");
+
+	buttons.forEach(function (button) {
+		button.addEventListener("click", function () {
+			animateButton(button);
+			button.style.backgroundColor = "lawngreen";
+			button.style.borderColor = "lawngreen";
+			var amountSelected = button.querySelector(".amount-top").textContent;
+			
+			var imageSelected = button.querySelector('.button-overlay > #imgSel');
+			var classLista = imageSelected.className;
+			var classes = classLista.split(' ');
+			var imageClass = classes[1];
+			
+			amoount_selected = amountSelected;
+			amoount_img_class = imageClass;
+			var selectwindow = document.getElementById("select-window");
+			hideElement1000(selectwindow);
+			setTimeout(function () {
+				generatingWindow.classList.remove("hidden");
+			//sh
+			}, 500);
+
+			var consoleText = document.getElementById("console-text");
+			var spinnerIcon = document.querySelector('.connecting-ic1');
+			var spinnerIconSpan = spinnerIcon.querySelector('.loading-spinner');
+			var checkIcon = document.querySelector('.check-ic1');
+			var errorIcon = document.querySelector('.error-ic');
+			var prHolder = document.getElementById("progress2");
+			var CountChip = document.getElementById("counting-ship");
+			var VerWindow = document.getElementById("verification-window");
+
+			var chosenValue = parseInt(amountSelected);
+			consoleText.textContent = "Loading...";
+			setTimeout(function () {
+
+				setTimeout(function () {
+					
+					setTimeout(function () {
+
+						consoleText.classList.add("hidden");
+						consoleText.textContent = "Generating...";
+						showElement(consoleText);
+
+						showElement1000(CountChip);
+						var countUpElement = document.getElementById("count-up");
+						var countUpImage = document.querySelector('#counting-ship .item-img');
+						
+						var currentValue = 0;
+						var interval = 7000 / (chosenValue + 1);
+						var toAdd = chosenValue / 100;
+						var valuex = 0;
+				
+						var countInterval = setInterval(function () {
+							countUpElement.innerText = parseInt(currentValue);
+							countUpImage.classList.add(amoount_img_class);
+							currentValue += toAdd;
+							valuex += 100;
+							if (currentValue > chosenValue) {
+								clearInterval(countInterval);
+							}
+							else if (valuex >= 7000) {
+								var remaining = chosenValue - currentValue;
+								currentValue += remaining;
+							}
+						}, 100);
+
+						prHolder.classList.remove("hidden");
+						var bar = document.getElementById("bar2");
+						var width = 0;
+						var interval = setInterval(frame, 30);
+						function frame() {
+							if (width >= 100) {
+								clearInterval(interval);
+							} else {
+								width++;
+								bar.style.width = width + "%";
+							}
+						}
+					}, 100);
+
+					setTimeout(function () {
+						hideElement(spinnerIcon);
+						showElement1000(checkIcon);
+
+						consoleText.classList.add("hidden");
+						consoleText.textContent = "Successfully Generated!";
+						showElement(consoleText);
+					}, 7100);
+
+					setTimeout(function () {
+						prHolder.classList.add("fade-out");
+						hideElement(CountChip);
+						generatingWindow.classList.add("bounce-out");
+
+						setTimeout(function () {
+							generatingWindow.classList.remove("bounce-out");
+							generatingWindow.classList.add("hidden");
+							generatingWindow.classList.remove("hidden");
+							consoleText.classList.add("hidden");
+							consoleText.textContent = "Automatic Unlocking...";
+							hideElement(checkIcon);
+							spinnerIconSpan.classList.remove("loading-spinner");
+							spinnerIconSpan.classList.add("gear-ic-img");
+							setTimeout(function () {
+								showElement(consoleText);
+								showElement1000(spinnerIcon);
+							}, 700);
+						}, 700);
+						
+
+						setTimeout(function(){
+							consoleText.classList.add("hidden");
+							consoleText.textContent = "Auto Unlock Failed!";
+							showElement(consoleText);
+							hideElement(spinnerIcon);
+							showElement(errorIcon);
+
+							setTimeout(function (){
+								generatingWindow.classList.remove("bounce-out");
+								
+								setTimeout(function () {
+									generatingWindow.classList.add("hidden");
+									VerWindow.classList.remove("hidden");
+									const myText = document.getElementById('username-value3');
+									myText.textContent = username_value;
+									const amountS = document.getElementById("amount-selected");
+									amountS.textContent = amoount_selected;
+									var selItemImage = document.querySelector('#sel-item-ship .item-img');
+									selItemImage.classList.add(amoount_img_class);
+									updateCountdown();
+								}, 700);
+							}, 1000);
+							
+						}, 6700);
+
+					}, 8500);
+
+				}, 100);
+			}, 4200);
+
+		});
+	});
+
+	function updateCountdown() {
+		const countdownElement = document.getElementById('countdown');
+
+		const minutes = Math.floor(countdownValue / 60);
+		const seconds = countdownValue % 60;
+
+		const formattedTime = `${minutes} minutes and ${seconds} seconds`;
+
+		countdownElement.textContent = formattedTime;
+
+		countdownValue--;
+
+		if (countdownValue < 0) {
+			countdownElement.textContent = '0 minutes and 0 seconds';
+		} else {
+			setTimeout(updateCountdown, 1000);
+		}
+	}
+
+}
+
+function showElement1000(element) {
+	element.classList.add("bounce-in");
+	element.classList.remove("hidden");
+	setTimeout(function () {
+		element.classList.remove("bounce-in");
+	}, 1000);
+}
+function showElement(element) {
+	element.classList.add("bounce-in");
+	element.classList.remove("hidden");
+	setTimeout(function () {
+		element.classList.remove("bounce-in");
+	}, 500); 
+}
+
+function hideElement(element) {
+	element.classList.add("bounce-out");
+	element.classList.add("hidden");
+	setTimeout(function () {
+		element.classList.remove("bounce-out");
+	}, 500); 
+}
+function hideElement1000(element) {
+	element.classList.add("bounce-out");
+	setTimeout(function () {
+		element.classList.add("hidden");
+		element.classList.remove("bounce-out");
+	}, 500); 
+}
+
+function animateButton(anButton) {
+	anButton.classList.add('button-animated');
+
+	setTimeout(function () {
+		anButton.classList.remove('button-animated');
+	}, 500);
+}
+
+//  Made With Love
+//  By JulyM

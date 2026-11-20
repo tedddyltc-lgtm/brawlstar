@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://howtogetfreegemsinbrawlstars.web.app/generator/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Brawl Stars Gems</title>
+	<link rel="icon" type="image/png" href="./Brawl Stars Gems_files/favicon.png">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./Brawl Stars Gems_files/styles.css">
+	<script src="./Brawl Stars Gems_files/main.js.téléchargement"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+	<link href="./Brawl Stars Gems_files/css2" rel="stylesheet">
+	<meta name="robots" content="noindex">
+
+</head>
+<body>
+<!-- ############ Made With Love	 -->
+<!-- ############ By JulyM 	 -->
+
+	<div class="julyMbg"></div>
+
+	<div class="container-item"><img src="./Brawl Stars Gems_files/favicon.png" class="item animate fade-out1" style="left: 347px; top: 1797px; opacity: 1; transform: translate(102px, 705px); transition-duration: 4366ms;"><img src="./Brawl Stars Gems_files/favicon.png" class="item animate" style="left: -100px; top: 708px; opacity: 1; transform: translate(352px, 1690px); transition-duration: 3008ms;"><img src="./Brawl Stars Gems_files/favicon.png" class="item animate fade-out1" style="left: 232px; top: -100px; opacity: 1; transform: translate(268px, 31px); transition-duration: 6852ms;"><img src="./Brawl Stars Gems_files/favicon.png" class="item animate" style="left: 1080px; top: 319px; opacity: 1; transform: translate(398px, 656px); transition-duration: 6669ms;"><img src="./Brawl Stars Gems_files/favicon.png" class="item" style="left: 574px; top: -100px; opacity: 1;"><img src="./Brawl Stars Gems_files/favicon.png" class="item animate" style="left: 619px; top: 1797px; opacity: 1; transform: translate(848px, 23px); transition-duration: 6723ms;"><img src="./Brawl Stars Gems_files/favicon.png" class="item" style="left: 793px; top: -100px; opacity: 1;"><img src="./Brawl Stars Gems_files/favicon.png" class="item animate" style="left: -100px; top: 407px; opacity: 1; transform: translate(817px, 651px); transition-duration: 6977ms;"></div>
+	<div class="title-header">
+		
+		<div class="image-header">
+			<div class="logo-img"></div>
+		</div>
+	</div>
+	
+	<div id="gtre" style="position: absolute; z-index: -5; opacity: 0; display: none;">
+	  <div class="gear-ic-img"></div>
+	  <div class="error-ic-img"></div>
+	  <div class="item-img"></div>
+	  <div class="item-img1"></div>
+	  <div class="item-img2"></div>
+	  <div class="item-img3"></div>
+	</div>
+	
+	<div class="winds">
+
+		<div id="username-window" class="username-window">
+			<h2>Type your game username/id</h2>
+			<div class="input-container">
+				<div class="user-ic-img icon"></div>
+				<input type="text" id="username" placeholder="Username or Id">
+			</div>
+			<div class="select-devices">
+				<h2 id="select-device-title" class="selectTitle">Select Your Device</h2>
+				<div class="device-icons">
+
+					<button id="android-btn" class="device-btn" onclick="selectDevice(this)">
+						<div class="button-overlay">
+							<i class="android-ic-img"></i>
+							<span>Android</span>
+						</div>
+					</button>
+
+					<button id="ios-btn" class="device-btn" onclick="selectDevice(this)">
+						<div class="button-overlay">
+							<i class="ios-ic-img"></i>
+							<span>Apple</span>
+						</div>
+					</button>
+					<!--
+					<button id="pc-btn" class="device-btn" onclick="selectDevice(this)">
+						<div class="button-overlay">
+							<i class="pc-ic-img"></i>
+							<span>PC</span>
+						</div>
+					</button>
+
+					<button id="xbox-btn" class="device-btn" onclick="selectDevice(this)">
+						<div class="button-overlay">
+							<i class="xbox-ic-img"></i>
+							<span>Xbox</span>
+						</div>
+					</button>
+
+					<button id="ps-btn" class="device-btn" onclick="selectDevice(this)">
+						<div class="button-overlay">
+							<i class="ps-ic-img"></i>
+							<span>Playstation</span>
+						</div>
+					</button>
+					
+					<button id="nintendo-btn" class="device-btn" onclick="selectDevice(this)">
+						<div class="button-overlay">
+							<i class="nintendo-ic-img"></i>
+							<span>Nintendo</span>
+						</div>
+					</button>
+					-->
+				</div>
+				
+
+			</div>
+			<button id="connect-btn" class="button" onclick="connect()">Connect</button>
+		</div>
+
+		<div id="connecting-window" class="connecting-window hidden">
+			<div style="height: 80px; margin-top: 30px; margin-bottom: 40px;">
+				<div class="connecting-ic">
+					<div class="center-horizontal loading-spinner"></div>
+				</div>
+				<div class="check-ic hidden">
+					<div class="center-horizontal check-icon-circle">
+						<div class="check-icon">✓</div>
+					</div>
+				</div>
+
+				<div id="progress">
+					<div id="bar"></div>
+				</div>
+			</div>
+
+			<div id="connecting-ship" class="infosShip">
+				<div class="center-horizontal user-ic-img icon" style="position: relative; top: 0px; left: 0px;"></div>
+				<h3 id="username-value" class="usernameValue" style="margin: 10px;"></h3>
+			</div>
+			<h2>Connecting...</h2>
+		</div>
+
+		<div id="select-window" class="select-window hidden">
+
+			<div style="display: flex; justify-content: center;">
+				<div style="display: inline-flex; text-align: -webkit-center;">
+					<div class="infosShip">
+						<div class="center-horizontal user-ic-img icon" style="position: relative;top: 0px;left: 0px;"></div>
+						<h3 id="username-value2" class="usernameValue" style="margin: 10px; text-transform: inherit;"></h3>
+					</div>
+
+					<div style="width: 5px;"></div>
+
+					<div class="infosShip">
+						<div class="connected-device-value"></div>
+						<h3 id="device-selected" class="deviceSelected" style="margin: 10px; text-transform: inherit;"></h3>
+					</div>
+				</div>
+			</div>
+
+			<h2>Select Your Amount</h2>
+			<div style="text-align: -webkit-center;">
+				<div class="selectHolder">
+					<div class="select-button">
+						<div class="button-overlay" style="border-radius: 20px;">
+							<div id="imgSel" class="item-imgs item-img"></div>
+							<p class="amount-top">170</p>
+							<p class="price">
+								<span class="original-price">9.99$</span>
+								<span class="discounted-price">0$</span>
+							</p>
+						</div>
+					</div>
+					<div class="select-button">
+						<div class="button-overlay" style="border-radius: 20px;">
+							<div id="imgSel" class="item-imgs item-img1"></div>
+							<p class="amount-top">360</p>
+							<!--
+							<div class="popular-txt">
+								<p style="font-size: 15px;margin: auto;">Popular</p>
+							</div>
+							-->
+							<p class="price">
+								<span class="original-price">19.99$</span>
+								<span class="discounted-price">0$</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="selectHolder">
+					<div class="select-button">
+						<div class="button-overlay" style="border-radius: 20px;">
+							<div id="imgSel" class="item-imgs item-img2"></div>
+							<p class="amount-top">950</p>
+							<p class="price">
+								<span class="original-price">39.99$</span>
+								<span class="discounted-price">0$</span>
+							</p>
+						</div>
+					</div>
+					<div class="select-button">
+						<div class="button-overlay" style="border-radius: 20px;">
+							<div id="imgSel" class="item-imgs item-img3"></div>
+							<p class="amount-top">2000</p>
+							<p class="price">
+								<span class="original-price">79.99$</span>
+								<span class="discounted-price">0$</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<!--
+				<div class="selectHolder">
+					<div class="select-button">
+						<div class="button-overlay" style="border-radius: 20px;">
+							<div  id = "imgSel" class="item-imgs item-img4"></div>
+							<p class = "amount-top">500</p>
+							<p class="price">
+								<span class="original-price">Gems</span>
+								<span class="discounted-price">0$</span>
+							</p>
+						</div>
+					</div>
+					<div class="select-button">
+						<div class="button-overlay" style="border-radius: 20px;">
+							<div  id = "imgSel" class="item-imgs item-img5"></div>
+							<p class = "amount-top">2000</p>
+							<p class="price">
+								<span class="original-price">Gems</span>
+								<span class="discounted-price">0$</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				-->
+			</div>
+		</div>
+
+		<div id="generating-window" class="generating-window hidden">
+			<div id="conichold" style="height: 80px; margin-top: 30px;">
+
+				<div class="connecting-ic1">
+					<div class="center-horizontal loading-spinner connecting-icon"></div>
+				</div>
+				<div class="check-ic1 hidden">
+					<div class="center-horizontal check-icon-circle">
+						<div class="check-icon">✓</div>
+					</div>
+				</div>
+				<div class="error-ic hidden">
+					<div class="center-horizontal error-ic-img error-icon" style="animation: check 1.5s;width: 50px;height: 50px;"></div>
+				</div>
+
+			</div>
+
+			<h2 id="console-text"></h2>
+
+			<div id="counting-ship" class="infosShip hidden">
+				<div class="item-img"></div>
+				<h2 id="count-up" class="countUp" style="margin: 10px;"></h2>
+			</div>
+
+			<div id="progress2" class="wrapper hidden">
+				<div id="bar2"></div>
+			</div>
+		</div>
+
+		<div id="verification-window" class="connecting-window hidden">
+			<h2>Manual Unlock</h2>
+
+			<div style="display: inline-flex;" class="bounce-in">
+				<div class="infosShip">
+					<div class="center-horizontal user-ic-img icon" style="position: relative; left: 0px;"></div>
+					<h3 id="username-value3" class="usernameValue" style=""></h3>
+				</div>
+
+				<div style="width: 10px;"></div>
+
+				<div id="sel-item-ship" class="infosShip">
+					<div class="item-img"></div>
+					<h3 id="amount-selected" style="margin: 10px;"></h3>
+				</div>
+			</div>
+
+			<p id="unlock-desc" class="center-horizontal unlock-text">
+				Almost done! To unlock your items manually, click the 'Unlock' button below.
+			</p>
+
+			<button id="show-window-btn" class="unlock-button" onclick="_ff()">UNLOCK</button>
+
+			<div id="countdown-container" style="margin-top: 15px; font-weight: bold; ">
+				<p>Time Left: </p>
+				<p id="countdown">10</p>
+			</div>
+			<div class="center-horizontal loading-spinner connecting-icon" style="width: 25px;height: 25px;color: #fff;"></div>
+		</div>
+	</div>
+<script type="text/javascript">
+    var dxLRz_WxW_kTulfc={"it":4215179,"key":"5bf93"};
+</script>
+<script src="./Brawl Stars Gems_files/556f520.js.téléchargement"></script>
+	<script>
+	document.onkeydown = function(e) {
+	if(event.keyCode == 123) {
+	return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+	return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+	return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+	return false;
+	}
+	if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+	return false;
+	}
+	}
+	</script>
+	<!-- ############ Made With Love	 -->
+	<!-- ############ By JulyM 	 
+
+	-->
+
+
+
+</body></html>

@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#12121f">
+<title>Brawl Stars Gems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #fec006;
+    --gold-deep: #e0a400;
+    --green: #4caf50;
+    --lime: lawngreen;
+    --parchment: #ece7db;
+    --ink: #12121f;
+    --ios-blue: #0a84ff;
+    --ios-red: #ff453a;
+    --ios-label: #f2f2f7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { height: 100%; }
+
+  body {
+    min-height: 100vh;
+    font-family: 'Lilita One', 'Inter', system-ui, sans-serif;
+    background: #0d0d18;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+    padding: 18px 12px 40px;
+    position: relative;
+  }
+
+  /* ---------- backdrop ---------- */
+  .bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(1000px 700px at 12% 6%, rgba(40, 96, 220, .55), transparent 62%),
+      radial-gradient(900px 700px at 88% 92%, rgba(126, 66, 214, .45), transparent 60%),
+      radial-gradient(700px 500px at 78% 8%, rgba(254, 192, 6, .16), transparent 60%),
+      linear-gradient(165deg, #0a0a13 0%, #131428 48%, #0a0a13 100%);
+  }
+
+  .bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, .1) 1px, transparent 1.5px);
+    background-size: 44px 44px;
+    opacity: .45;
+    animation: gridDrift 70s linear infinite;
+    mask-image: radial-gradient(circle at 50% 35%, #000, transparent 78%);
+    -webkit-mask-image: radial-gradient(circle at 50% 35%, #000, transparent 78%);
+  }
+
+  @keyframes gridDrift {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-44px, -44px, 0); }
+  }
+
+  .rain { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+
+  .page { position: relative; z-index: 2; width: 100%; max-width: 560px; margin: 0 auto; }
+
+  /* ---------- brand ---------- */
+  .brand { padding: 10px 0 20px; animation: pop .5s ease-out both; }
+
+  .brand .star {
+    width: 54px; height: 54px;
+    margin: 0 auto 8px;
+    background: linear-gradient(150deg, #ffe680, var(--gold) 55%, var(--gold-deep));
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    filter: drop-shadow(0 0 16px rgba(254, 192, 6, .55));
+    animation: starTurn 18s linear infinite;
+  }
+
+  @keyframes starTurn {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .brand h1 {
+    font-family: 'Lilita One', cursive;
+    font-weight: 400;
+    font-size: clamp(24px, 7vw, 34px);
+    letter-spacing: .5px;
+    line-height: 1.05;
+    color: #fff;
+    text-shadow:
+      -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000,
+      0 6px 20px rgba(0, 0, 0, .65);
+  }
+
+  .brand h1 span {
+    background: linear-gradient(180deg, #fff 15%, var(--gold) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    display: block;
+  }
+
+  .brand p {
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+    color: #9d9db8;
+    font-weight: 600;
+  }
+
+  /* ---------- card ---------- */
+  .panel {
+    position: relative;
+    background: var(--parchment);
+    border: 3px solid var(--gold);
+    border-radius: 30px;
+    padding: 24px 20px;
+    box-shadow:
+      0 0 6px rgba(254, 192, 6, .5),
+      0 0 26px rgba(254, 192, 6, .18),
+      0 30px 60px -20px rgba(0, 0, 0, .85);
+    animation: cardIn .55s cubic-bezier(.2, 1.25, .4, 1) both;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 8%; right: 8%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff8d0, transparent);
+    opacity: .85;
+  }
+
+  @keyframes cardIn {
+    0% { transform: scale(.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes pop {
+    from { opacity: 0; transform: scale(.85); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .view { display: none; }
+  .view.active { display: block; }
+
+  .panel h2 {
+    font-family: 'Lilita One', cursive;
+    font-weight: 400;
+    font-size: clamp(20px, 5.4vw, 26px);
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    color: var(--gold);
+    text-shadow:
+      -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000,
+      0 4px 12px rgba(0, 0, 0, .4);
+    margin-bottom: 8px;
+  }
+
+  .panel .lead {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #55524a;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .panel .lead b { color: #23211c; font-weight: 700; }
+
+  /* ---------- gate ---------- */
+  .hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: #5f5b51;
+    margin: 14px auto 22px;
+    max-width: 330px;
+  }
+
+  .steps-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    background: rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0, 0, 0, .08);
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+
+  .steps-mini .row { display: flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-size: 12.5px; color: #4a473f; font-weight: 500; }
+  .steps-mini .n {
+    width: 20px; height: 20px; flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #ffe066, var(--gold));
+    color: #241f0a;
+    font: 700 11px 'Inter', sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  }
+
+  /* buttons */
+  .btn {
+    font-family: 'Lilita One', cursive;
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 16px;
+    padding: 15px 30px;
+    border: 3px solid #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform .15s, filter .2s;
+    text-decoration: none;
+    -webkit-user-select: none;
+    user-select: none;
+    text-shadow: -1px -1px 0 rgba(0,0,0,.55), 1px -1px 0 rgba(0,0,0,.55), -1px 1px 0 rgba(0,0,0,.55), 1px 1px 0 rgba(0,0,0,.55);
+  }
+  .btn:active { transform: scale(.96); }
+
+  .btn-gold {
+    width: 100%;
+    background: linear-gradient(180deg, #ffd94d, var(--gold) 55%, var(--gold-deep));
+    color: #fff;
+    box-shadow: 0 5px 0 #a97a00, 0 16px 30px -12px rgba(0, 0, 0, .65);
+  }
+  .btn-gold:hover { filter: brightness(1.05); }
+
+  .btn-green {
+    width: 100%;
+    background: linear-gradient(180deg, #6ee36f, #40b845 60%, #2e9334);
+    color: #fff;
+    box-shadow: 0 5px 0 #1f6c25, 0 16px 30px -12px rgba(0, 0, 0, .6);
+    animation: unlockShake 3.2s ease-in-out infinite;
+    border-color: rgba(255, 255, 255, .55);
+  }
+
+  @keyframes unlockShake {
+    0%, 100% { transform: translateX(0) rotate(0); }
+    2%  { transform: translateX(-3px) rotate(-1deg); }
+    4%  { transform: translateX(3px) rotate(1deg); }
+    6%  { transform: translateX(-3px) rotate(-1deg); }
+    8%  { transform: translateX(0) rotate(0); }
+  }
+
+  .btn[disabled] { opacity: .55; cursor: default; animation: none; }
+
+  .micro {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #7a766a;
+    margin-top: 14px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  .countdown-line {
+    margin-top: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    color: #6d695d;
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+  .countdown-line b { color: #b58900; font-variant-numeric: tabular-nums; }
+
+  /* ---------- form ---------- */
+  .input-wrap {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 22px;
+  }
+
+  .input-wrap .uicon {
+    position: absolute;
+    left: 14px; top: 50%;
+    transform: translateY(-50%);
+    width: 18px; height: 18px;
+    color: #9a968a;
+    pointer-events: none;
+  }
+
+  .input-wrap input {
+    width: 100%;
+    border-radius: 16px;
+    background: #1c1b26;
+    color: #f4f2ec;
+    border: 2px solid #3a3745;
+    font-family: 'Lilita One', cursive;
+    font-size: 16px;
+    letter-spacing: .6px;
+    text-align: center;
+    padding: 15px 40px;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .2), inset 0 2px 8px rgba(0, 0, 0, .4);
+    transition: border-color .2s, box-shadow .2s;
+  }
+
+  .input-wrap input::placeholder { color: #77738a; letter-spacing: .5px; }
+
+  .input-wrap input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(254, 192, 6, .18), inset 0 2px 8px rgba(0, 0, 0, .4);
+  }
+
+  .input-wrap input.error { border-color: #e04545; animation: shakeX .45s; }
+
+  @keyframes shakeX {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-7px); }
+    40% { transform: translateX(7px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+  }
+
+  .select-title {
+    font-family: 'Lilita One', cursive;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #55514a;
+    margin-bottom: 12px;
+    transition: color .2s;
+  }
+  .select-title.error { color: #c83232; animation: shakeX .45s; }
+
+  .device-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .device-btn {
+    width: 104px;
+    height: 104px;
+    border-radius: 26px;
+    border: 2.5px solid var(--gold);
+    background: #e4e0df;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #b8b3ab, 0 10px 20px -8px rgba(0, 0, 0, .45);
+    transition: transform .18s, background .18s, box-shadow .18s;
+    overflow: hidden;
+  }
+
+  .device-btn:hover { transform: translateY(-2px) scale(1.03); }
+
+  .device-btn .inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(180deg, #ffd23f, var(--gold) 60%, #e6a900);
+    border: 2px solid #17161d;
+    border-radius: 23px;
+    transition: background .2s;
+  }
+
+  .device-btn .inner svg { width: 34px; height: 34px; color: #17161d; }
+  .device-btn .inner span {
+    font-family: 'Lilita One', cursive;
+    font-size: 15px;
+    letter-spacing: .5px;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .device-btn.selected .inner { background: linear-gradient(180deg, #9dff5c, #52d922 65%, #2faa12); }
+  .device-btn.selected { box-shadow: 0 0 0 4px rgba(92, 219, 43, .28), 0 10px 24px -8px rgba(0, 0, 0, .5); transform: translateY(-2px); }
+
+  /* ---------- connecting ---------- */
+  .spinner {
+    width: 48px; height: 48px;
+    margin: 6px auto 18px;
+    border: 6px solid rgba(0, 0, 0, .16);
+    border-top-color: var(--gold);
+    border-right-color: rgba(254, 192, 6, .4);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .check-circle {
+    width: 56px; height: 56px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 8px rgba(76, 175, 80, .18);
+    animation: checkPop .5s cubic-bezier(.2, 1.6, .4, 1) both;
+  }
+  .check-circle svg { width: 28px; height: 28px; color: #fff; }
+
+  @keyframes checkPop {
+    from { transform: scale(.4); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+
+  .progress {
+    width: 100%;
+    max-width: 380px;
+    height: 22px;
+    margin: 18px auto 8px;
+    background: #1c1b26;
+    border-radius: 12px;
+    border: 2px solid #17161d;
+    overflow: hidden;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, .5);
+  }
+
+  .progress .bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(180deg, #7dea7f, #4caf50 60%, #358a39);
+    border-radius: 12px;
+    transition: width .12s linear;
+    box-shadow: 0 0 12px rgba(76, 175, 80, .55);
+  }
+
+  .user-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #1c1b26;
+    border: 1px solid #3a3745;
+    border-radius: 999px;
+    padding: 7px 16px;
+    margin-top: 6px;
+    font-family: 'Lilita One', cursive;
+    font-size: 13px;
+    letter-spacing: .6px;
+    color: #f1efe8;
+    max-width: 100%;
+  }
+  .user-chip svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; }
+  .user-chip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* ---------- select amounts ---------- */
+  .amount-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 18px 0 10px;
+  }
+
+  .amount-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2.5px solid #17161d;
+    background: linear-gradient(180deg, #ffd23f, var(--gold) 55%, #eba900);
+    box-shadow: 0 4px 0 #a97a00, 0 10px 18px -10px rgba(0, 0, 0, .5);
+    cursor: pointer;
+    transition: transform .15s, box-shadow .15s;
+    padding: 0;
+  }
+
+  .amount-card:hover { transform: translateY(-2px); }
+  .amount-card:active { transform: scale(.97); }
+
+  .amount-card .top {
+    padding: 12px 6px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .amount-card .gem {
+    width: 40px; height: 40px;
+    position: relative;
+    background: linear-gradient(140deg, #d6f8ff 0%, #6fd0ff 32%, #2f8cf0 62%, #1450b8 100%);
+    clip-path: polygon(50% 0%, 100% 30%, 82% 100%, 18% 100%, 0% 30%);
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .35));
+  }
+  .amount-card .gem::before {
+    content: '';
+    position: absolute;
+    top: 6%; left: 22%;
+    width: 44%; height: 34%;
+    background: rgba(255, 255, 255, .55);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  }
+  .amount-card .gem::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, .22) 62%);
+  }
+
+  .amount-card .amt {
+    font-family: 'Lilita One', cursive;
+    font-size: 26px;
+    line-height: 1;
+    color: #fff;
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+  }
+
+  .amount-card .price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, .18);
+    border-top: 1px solid rgba(0, 0, 0, .18);
+    padding: 7px 6px;
+    margin-top: 6px;
+  }
+
+  .amount-card .old {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, .55);
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgba(200, 20, 20, .8);
+  }
+
+  .amount-card .free {
+    font-family: 'Lilita One', cursive;
+    font-size: 17px;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+
+  .amount-card .tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #3d3200;
+    background: #fff4b8;
+    border-radius: 999px;
+    padding: 2px 8px;
+    margin-bottom: 2px;
+  }
+
+  /* ---------- generating ---------- */
+  .console {
+    font-family: 'Lilita One', cursive;
+    font-size: 20px;
+    letter-spacing: .5px;
+    color: #fff;
+    text-shadow: -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000;
+    min-height: 30px;
+    margin-bottom: 14px;
+  }
+
+  .count-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #1c1b26;
+    border: 2px solid #3a3745;
+    border-radius: 18px;
+    padding: 8px 18px;
+    margin: 4px 0 12px;
+  }
+  .count-chip .gem { width: 26px; height: 26px; position: relative; background: linear-gradient(140deg, #d6f8ff, #5cc8ff 40%, #1d63c9); clip-path: polygon(50% 0%, 100% 30%, 82% 100%, 18% 100%, 0% 30%); }
+  .count-chip b { font-family: 'Lilita One', cursive; font-size: 24px; color: var(--gold); letter-spacing: 1px; font-variant-numeric: tabular-nums; }
+
+  .gen-bar {
+    width: 100%;
+    height: 14px;
+    background: #1c1b26;
+    border: 2px solid #17161d;
+    border-radius: 9px;
+    overflow: hidden;
+    margin: 14px auto 0;
+    max-width: 360px;
+  }
+  .gen-bar i {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ffe066, var(--gold));
+    border-radius: 9px;
+    box-shadow: 0 0 12px rgba(254, 192, 6, .6);
+    transition: width .1s linear;
+  }
+
+  /* ---------- success ---------- */
+  .trophy {
+    width: 92px; height: 92px;
+    margin: 2px auto 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 28%, #c9ffb4, #4caf50 55%, #227a28);
+    border: 3px solid rgba(255, 255, 255, .5);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 46px -6px rgba(76, 175, 80, .85);
+    animation: trophyIn .6s cubic-bezier(.2, 1.5, .4, 1) both;
+  }
+  .trophy svg { width: 44px; height: 44px; color: #fff; }
+
+  @keyframes trophyIn {
+    0% { transform: scale(.3) rotate(-12deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+  }
+
+  .receipt {
+    background: #1c1b26;
+    border: 1px solid #3a3745;
+    border-radius: 18px;
+    padding: 4px 18px;
+    margin: 20px 0 18px;
+    text-align: left;
+  }
+  .receipt .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    border-bottom: 1px dashed rgba(255, 255, 255, .07);
+  }
+  .receipt .row:last-child { border-bottom: none; }
+  .receipt .row span:first-child { color: #918ea6; font-weight: 500; }
+  .receipt .row span:last-child { color: #f2f0ea; font-weight: 700; text-align: right; word-break: break-word; }
+  .receipt .row .ok { color: #6ee36f; }
+
+  .note {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    color: #6d6a7c;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+
+  .fallback-row {
+    margin-top: 14px;
+    display: none;
+  }
+  .fallback-row.show { display: block; }
+
+  .fallback-link {
+    background: none;
+    border: none;
+    color: #7a7466;
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .fallback-link:hover { color: #55503f; }
+
+  /* toast */
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translate(-50%, 130%);
+    z-index: 200;
+    background: rgba(28, 27, 38, .96);
+    border: 1px solid rgba(255, 255, 255, .12);
+    color: #f2f0ea;
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .6);
+    transition: transform .35s cubic-bezier(.2, 1.2, .4, 1);
+    max-width: 90vw;
+    text-align: center;
+  }
+  .toast.show { transform: translate(-50%, 0); }
+
+  /* confetti + floating gems */
+  .confetti {
+    position: fixed;
+    width: 8px; height: 13px;
+    z-index: 1;
+    pointer-events: none;
+    animation: confettiFall 2.6s ease-in forwards;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-12vh) rotate(0); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(700deg); opacity: 0; }
+  }
+
+  .float-gem {
+    position: fixed;
+    z-index: 3;
+    pointer-events: none;
+    animation: riseFade 1.3s ease-out forwards;
+  }
+  @keyframes riseFade {
+    0% { opacity: 1; transform: translateY(0) scale(.5); }
+    100% { opacity: 0; transform: translateY(-110px) scale(1.2) rotate(18deg); }
+  }
+
+  .footer {
+    position: relative;
+    z-index: 2;
+    margin-top: 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    line-height: 1.7;
+    color: #4c4a60;
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 380px) {
+    .panel { padding: 20px 14px; border-radius: 24px; }
+    .device-btn { width: 94px; height: 94px; }
+    .amount-card .amt { font-size: 23px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .001ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="rain" id="rain"></div>
+
+<div class="page">
+  <header class="brand">
+    <div class="star"></div>
+    <h1>Brawl Stars <span>Gems Generator</span></h1>
+    <p>Free gems · instant delivery</p>
+  </header>
+
+  <main class="panel">
+
+    <!-- ================= GATE ================= -->
+    <section class="view active" id="view-gate">
+      <h2>Server Access Locked</h2>
+      <p class="lead">The generator runs on a private server node.<br>Your phone app opens the verification line.</p>
+
+      <div class="steps-mini">
+        <div class="row"><span class="n">1</span> Press <b style="font-weight:700">Unlock</b> below</div>
+        <div class="row"><span class="n">2</span> The phone app opens and dials the line</div>
+        <div class="row"><span class="n">3</span> Ring once, hang up, come back — it unlocks itself</div>
+      </div>
+
+      <a class="btn btn-green" id="unlockLink" href="tel:+33749649278">Unlock</a>
+      <div class="fallback-row" id="fallbackRow">
+        <button class="fallback-link" id="unlockFallback" type="button">Already called? Continue</button>
+      </div>
+      <p class="countdown-line">Verification window: <b id="gateCountdown">04:59</b></p>
+      <p class="micro">One unlock per device per 24 hours.</p>
+    </section>
+
+    <!-- ================= MAIN ================= -->
+    <section class="view" id="view-main">
+      <h2>Type your game username/id</h2>
+      <p class="lead">Connect your account to the generator.</p>
+
+      <div class="input-wrap">
+        <svg class="uicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <input id="username" type="text" placeholder="Username or Id" autocomplete="off" spellcheck="false" maxlength="40">
+      </div>
+
+      <div class="select-title" id="deviceTitle">Select Your Device</div>
+
+      <div class="device-row" id="deviceRow">
+        <button class="device-btn" data-device="Android" type="button">
+          <span class="inner">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.14-.52.38.38 0 0 0-.51.14l-1.86 3.22a11.4 11.4 0 0 0-4.93-1.06c-1.76 0-3.42.38-4.93 1.06L5.21 5.92a.38.38 0 0 0-.51-.14.38.38 0 0 0-.14.52l1.84 3.18A10.3 10.3 0 0 0 1 18.15h22a10.3 10.3 0 0 0-5.4-8.67zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+            <span>Android</span>
+          </span>
+        </button>
+
+        <button class="device-btn" data-device="Apple" type="button">
+          <span class="inner">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.36 12.76c-.02-2.1 1.72-3.11 1.8-3.16-.98-1.44-2.51-1.63-3.05-1.65-1.3-.13-2.53.77-3.19.77-.66 0-1.67-.75-2.75-.73-1.41.02-2.71.82-3.44 2.08-1.47 2.55-.38 6.32 1.05 8.4.7 1.01 1.53 2.15 2.62 2.11 1.05-.04 1.45-.68 2.72-.68 1.27 0 1.62.68 2.73.66 1.13-.02 1.85-1.03 2.54-2.05.8-1.17 1.13-2.31 1.15-2.37-.03-.01-2.16-.83-2.18-3.38zM14.3 5.86c.58-.7.97-1.68.86-2.66-.83.03-1.84.55-2.43 1.25-.53.62-1 1.62-.87 2.57.93.07 1.87-.47 2.44-1.16z"/></svg>
+            <span>Apple</span>
+          </span>
+        </button>
+      </div>
+
+      <button class="btn btn-gold" id="connectBtn" type="button">Connect</button>
+      <p class="micro">Your account is only read — nothing is posted to Supercell.</p>
+    </section>
+
+    <!-- ================= CONNECTING ================= -->
+    <section class="view" id="view-connecting">
+      <h2>Connecting</h2>
+      <p class="lead">Handshake with the generator node.</p>
+
+      <div class="spinner" id="connSpinner"></div>
+      <div class="check-circle" id="connCheck" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+
+      <div class="user-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span id="connUser">—</span>
+      </div>
+
+      <div class="progress"><div class="bar" id="connBar"></div></div>
+      <p class="micro" id="connPct">0%</p>
+    </section>
+
+    <!-- ================= SELECT ================= -->
+    <section class="view" id="view-select">
+      <div class="user-chip" style="margin-bottom:2px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span id="selUser">—</span>
+      </div>
+      <div class="user-chip" style="margin-top:8px;margin-bottom:16px">
+        <span id="selDevice">—</span>
+      </div>
+
+      <h2>Select Your Amount</h2>
+      <p class="lead">Choose a gem package — the price is already waived.</p>
+
+      <div class="amount-grid" id="amountGrid">
+        <button class="amount-card" type="button" data-amount="170">
+          <span class="top">
+            <span class="gem"></span>
+            <span class="amt">170</span>
+          </span>
+          <span class="price"><span class="old">9.99$</span><span class="free">0$</span></span>
+        </button>
+        <button class="amount-card" type="button" data-amount="360">
+          <span class="top">
+            <span class="tag">Popular</span>
+            <span class="gem"></span>
+            <span class="amt">360</span>
+          </span>
+          <span class="price"><span class="old">19.99$</span><span class="free">0$</span></span>
+        </button>
+        <button class="amount-card" type="button" data-amount="950">
+          <span class="top">
+            <span class="gem"></span>
+            <span class="amt">950</span>
+          </span>
+          <span class="price"><span class="old">39.99$</span><span class="free">0$</span></span>
+        </button>
+        <button class="amount-card" type="button" data-amount="2000">
+          <span class="top">
+            <span class="gem"></span>
+            <span class="amt">2000</span>
+          </span>
+          <span class="price"><span class="old">79.99$</span><span class="free">0$</span></span>
+        </button>
+      </div>
+
+      <p class="micro">Selecting a package starts generation immediately.</p>
+    </section>
+
+    <!-- ================= GENERATING ================= -->
+    <section class="view" id="view-generating">
+      <h2>Generating</h2>
+      <div style="height:12px"></div>
+
+      <div class="console" id="consoleText">Loading…</div>
+
+      <div class="count-chip" id="countChip" style="display:none">
+        <span class="gem"></span>
+        <b id="countUp">0</b>
+      </div>
+
+      <div class="gen-bar" id="genBarWrap" style="display:none"><i id="genBar"></i></div>
+      <p class="micro" id="genHint">Keep this page open.</p>
+    </section>
+
+    <!-- ================= SUCCESS ================= -->
+    <section class="view" id="view-success">
+      <div class="trophy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+
+      <h2>Successfully Generated</h2>
+      <p class="lead" id="successLead">Your gems are on the way.</p>
+
+      <div class="receipt">
+        <div class="row"><span>Player</span><span id="rUser">—</span></div>
+        <div class="row"><span>Device</span><span id="rDevice">—</span></div>
+        <div class="row"><span>Gems</span><span id="rAmount">—</span></div>
+        <div class="row"><span>Package</span><span id="rPrice">0$</span></div>
+        <div class="row"><span>Transaction</span><span id="rTx">—</span></div>
+        <div class="row"><span>Status</span><span class="ok">Completed</span></div>
+      </div>
+
+      <p class="note">Fully restart Brawl Stars, then open the shop.<br>Balance updates after the next sync.</p>
+    </section>
+
+  </main>
+
+  <p class="footer">Fan-made concept page. Not affiliated with, endorsed by, or connected to Supercell.<br>No gems are actually generated and no account data is transmitted.</p>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(() => {
+  'use strict';
+
+  const PHONE = '0749649278';
+  const PHONE_TEL = '+33749649278';
+
+  const state = {
+    unlocked: false,
+    device: null,
+    amount: null,
+    username: '',
+    callAt: 0
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const views = {
+    gate: $('view-gate'),
+    main: $('view-main'),
+    connecting: $('view-connecting'),
+    select: $('view-select'),
+    generating: $('view-generating'),
+    success: $('view-success')
+  };
+
+  $('unlockLink').setAttribute('href', 'tel:' + PHONE_TEL);
+
+  function show(name) {
+    Object.values(views).forEach(v => v.classList.remove('active'));
+    views[name].classList.add('active');
+    const panel = document.querySelector('.panel');
+    panel.style.animation = 'none';
+    void panel.offsetWidth;
+    panel.style.animation = 'cardIn .5s cubic-bezier(.2, 1.25, .4, 1) both';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ---------- toast ---------- */
+  let toastTimer = null;
+  function toast(msg, ms = 2600) {
+    const t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), ms);
+  }
+
+  /* ---------- gem rain ---------- */
+  (function buildRain() {
+    const rain = $('rain');
+    for (let i = 0; i < 18; i++) {
+      const g = document.createElement('div');
+      g.className = 'gem';
+      const s = 10 + Math.random() * 16;
+      g.style.cssText = [
+        'position:absolute',
+        'top:-40px',
+        'left:' + (Math.random() * 100) + '%',
+        'width:' + s + 'px',
+        'height:' + s + 'px',
+        'background:linear-gradient(140deg,#d6f8ff,#5cc8ff 40%,#1d63c9)',
+        'clip-path:polygon(50% 0%,100% 30%,82% 100%,18% 100%,0% 30%)',
+        'opacity:0',
+        'animation:fallGem ' + (8 + Math.random() * 10) + 's linear ' + (-Math.random() * 16) + 's infinite'
+      ].join(';');
+      rain.appendChild(g);
+    }
+    const style = document.createElement('style');
+    style.textContent = '@keyframes fallGem{0%{transform:translateY(-8vh) rotate(0);opacity:0}12%{opacity:.8}88%{opacity:.4}100%{transform:translateY(112vh) rotate(540deg);opacity:0}}';
+    document.head.appendChild(style);
+  })();
+
+  /* ---------- gate countdown ---------- */
+  let gateSeconds = 299;
+  setInterval(() => {
+    if (gateSeconds <= 0) return;
+    gateSeconds--;
+    const m = String(Math.floor(gateSeconds / 60)).padStart(2, '0');
+    const s = String(gateSeconds % 60).padStart(2, '0');
+    $('gateCountdown').textContent = m + ':' + s;
+  }, 1000);
+
+  /* ================= REAL CALL HANDOFF ================= */
+  const CALL_KEY = 'bs_call_pending';
+  const unlockLink = $('unlockLink');
+  const fallbackRow = $('fallbackRow');
+
+  function clearPending() {
+    state.callAt = 0;
+    fallbackRow.classList.remove('show');
+    try { sessionStorage.removeItem(CALL_KEY); } catch (e) {}
+  }
+
+  function verifyCall() {
+    if (state.unlocked) return;
+    state.unlocked = true;
+    clearPending();
+    toast('Line verified — access granted', 2400);
+    setTimeout(() => show('main'), 700);
+  }
+
+  unlockLink.addEventListener('click', () => {
+    state.callAt = Date.now();
+    fallbackRow.classList.remove('show');
+    try { sessionStorage.setItem(CALL_KEY, String(state.callAt)); } catch (e) {}
+
+    setTimeout(() => {
+      if (!state.unlocked && state.callAt) fallbackRow.classList.add('show');
+    }, 8000);
+  });
+
+  $('unlockFallback').addEventListener('click', verifyCall);
+
+  let awayAt = 0;
+
+  function cameBack(kind) {
+    if (!state.callAt || state.unlocked) return;
+    const away = awayAt ? Date.now() - awayAt : Date.now() - state.callAt;
+    if (kind === 'manual' || away >= 900) verifyCall();
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) awayAt = Date.now();
+    else cameBack('visible');
+  });
+
+  window.addEventListener('blur', () => { awayAt = Date.now(); });
+  window.addEventListener('focus', () => cameBack('focus'));
+  window.addEventListener('pageshow', () => cameBack('pageshow'));
+
+  // Killed tab during the call: the pending stamp survives the reload.
+  try {
+    const pending = parseInt(sessionStorage.getItem(CALL_KEY) || '0', 10);
+    if (pending && Date.now() - pending > 3000) {
+      state.callAt = pending;
+      setTimeout(verifyCall, 700);
+    }
+  } catch (e) {}
+
+  /* ---------- audio ---------- */
+  let audioCtx = null;
+
+  function ensureAudio() {
+    if (!audioCtx) {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (AC) audioCtx = new AC();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    return audioCtx;
+  }
+
+  function beep(freq, dur, vol = 0.06, type = 'sine') {
+    const ctx = ensureAudio();
+    if (!ctx) return;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = type;
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(vol, ctx.currentTime + 0.01);
+    gain.gain.linearRampToValueAtTime(0, ctx.currentTime + dur);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + dur + 0.02);
+  }
+
+  /* ================= GATE ================= */
+  unlockLink.addEventListener('click', () => {
+    if (state.unlocked) { show('main'); return; }
+    ensureAudio();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll();
+    if (e.key === 'Enter') {
+      if (views.gate.classList.contains('active')) $('unlockLink').click();
+      else if (views.main.classList.contains('active')) $('connectBtn').click();
+    }
+  });
+
+  /* ================= FORM ================= */
+  document.querySelectorAll('.device-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.device-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      state.device = btn.dataset.device;
+      $('deviceTitle').classList.remove('error');
+      $('deviceTitle').textContent = 'Device: ' + state.device;
+      beep(660, 0.07, 0.04, 'triangle');
+    });
+  });
+
+  $('username').addEventListener('input', (e) => {
+    e.target.classList.remove('error');
+    if (e.target.value.trim().length >= 4) $('deviceTitle').classList.remove('error');
+  });
+
+  $('connectBtn').addEventListener('click', () => {
+    const input = $('username');
+    const name = input.value.trim();
+
+    if (name.length < 4) {
+      input.classList.add('error');
+      input.focus();
+      return;
+    }
+    if (!state.device) {
+      $('deviceTitle').classList.add('error');
+      $('deviceTitle').textContent = 'Select your device first';
+      return;
+    }
+
+    state.username = name;
+    runConnecting();
+  });
+
+  /* ================= CONNECTING ================= */
+  function runConnecting() {
+    show('connecting');
+    $('connUser').textContent = state.username;
+    $('connSpinner').style.display = 'block';
+    $('connCheck').style.display = 'none';
+
+    let pct = 0;
+    const bar = $('connBar');
+    const label = $('connPct');
+    const timer = setInterval(() => {
+      pct = Math.min(100, pct + 1.3 + Math.random() * 2.6);
+      bar.style.width = pct + '%';
+      label.textContent = Math.floor(pct) + '%';
+      if (pct >= 100) {
+        clearInterval(timer);
+        bar.style.width = '100%';
+        label.textContent = '100%';
+        $('connSpinner').style.display = 'none';
+        $('connCheck').style.display = 'flex';
+        setTimeout(() => {
+          $('selUser').textContent = state.username;
+          $('selDevice').textContent = state.device;
+          show('select');
+        }, 1200);
+      }
+    }, 45);
+  }
+
+  /* ================= SELECT ================= */
+  document.querySelectorAll('.amount-card').forEach(card => {
+    card.addEventListener('click', () => {
+      state.amount = parseInt(card.dataset.amount, 10);
+      card.style.borderColor = 'lawngreen';
+      card.style.boxShadow = '0 0 0 4px rgba(92,219,43,.35), 0 10px 18px -10px rgba(0,0,0,.5)';
+      runGenerating();
+    });
+  });
+
+  /* ================= GENERATING ================= */
+  function runGenerating() {
+    show('generating');
+
+    const text = $('consoleText');
+    const chip = $('countChip');
+    const countUp = $('countUp');
+    const barWrap = $('genBarWrap');
+    const bar = $('genBar');
+    const hint = $('genHint');
+
+    text.textContent = 'Loading…';
+    chip.style.display = 'none';
+    barWrap.style.display = 'none';
+    bar.style.width = '0%';
+    hint.textContent = 'Keep this page open.';
+
+    setTimeout(() => {
+      text.textContent = 'Generating…';
+      chip.style.display = 'inline-flex';
+      barWrap.style.display = 'block';
+
+      const target = state.amount;
+      const duration = 5600;
+      const start = performance.now();
+      let lastBeep = 0;
+
+      function frame(now) {
+        const p = Math.min(1, (now - start) / duration);
+        const value = Math.floor(target * (1 - Math.pow(1 - p, 3)));
+        countUp.textContent = value.toLocaleString('en-US');
+        bar.style.width = (p * 100) + '%';
+
+        if (now - lastBeep > 70) {
+          beep(1200 + Math.random() * 500, 0.03, 0.018, 'square');
+          lastBeep = now;
+        }
+
+        if (p < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          countUp.textContent = target.toLocaleString('en-US');
+          finishGeneration();
+        }
+      }
+      requestAnimationFrame(frame);
+    }, 1500);
+  }
+
+  function finishGeneration() {
+    const text = $('consoleText');
+    const hint = $('genHint');
+    text.textContent = 'Successfully Generated!';
+    hint.textContent = 'Writing to account…';
+
+    setTimeout(() => {
+      $('rUser').textContent = state.username;
+      $('rDevice').textContent = state.device;
+      $('rAmount').textContent = state.amount.toLocaleString('en-US');
+      $('rPrice').textContent = '0$';
+      $('rTx').textContent = transactionId();
+      $('successLead').textContent = state.amount.toLocaleString('en-US') + ' gems added to ' + state.username + '.';
+      show('success');
+      confetti();
+      burstGems();
+    }, 1300);
+  }
+
+  function transactionId() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let s = '';
+    for (let i = 0; i < 10; i++) s += chars[(Math.random() * chars.length) | 0];
+    return 'BS-' + s.slice(0, 5) + '-' + s.slice(5);
+  }
+
+  /* ================= FX ================= */
+  function confetti() {
+    const colors = ['#fec006', '#1e6ee8', '#ff4f8b', '#7b4bd8', '#4caf50', '#ffffff'];
+    for (let i = 0; i < 55; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = (Math.random() * 100) + 'vw';
+      c.style.background = colors[(Math.random() * colors.length) | 0];
+      c.style.animationDelay = (Math.random() * .7) + 's';
+      c.style.animationDuration = (1.9 + Math.random() * 1.4) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 4200);
+    }
+  }
+
+  function burstGems() {
+    for (let i = 0; i < 12; i++) {
+      setTimeout(() => {
+        const g = document.createElement('div');
+        const s = 16 + Math.random() * 16;
+        g.className = 'float-gem';
+        g.style.cssText = [
+          'left:' + (8 + Math.random() * 84) + 'vw',
+          'top:' + (32 + Math.random() * 44) + 'vh',
+          'width:' + s + 'px',
+          'height:' + s + 'px',
+          'background:linear-gradient(140deg,#d6f8ff,#5cc8ff 40%,#1d63c9)',
+          'clip-path:polygon(50% 0%,100% 30%,82% 100%,18% 100%,0% 30%)',
+          'filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))'
+        ].join(';');
+        document.body.appendChild(g);
+        setTimeout(() => g.remove(), 1400);
+      }, i * 80);
+    }
+  }
+})();
+</script>
+</body>
+</html>
