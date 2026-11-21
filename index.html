@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#12121f">
-<title>Brawl Stars Gems</title>
+<title data-i18n="doc.title">Brawl Stars Gems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -731,6 +731,43 @@
     margin-right: auto;
   }
 
+  .lang-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 16px auto 0;
+  }
+
+  .lang-row svg { width: 14px; height: 14px; color: #55536a; flex-shrink: 0; }
+
+  .lang-row select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: rgba(255, 255, 255, .05);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%237c7a92' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 11px center;
+    border: 1px solid rgba(255, 255, 255, .12);
+    color: #a8a6bd;
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 7px 30px 7px 13px;
+    border-radius: 999px;
+    cursor: pointer;
+    outline: none;
+    max-width: 240px;
+  }
+  .lang-row select:focus { border-color: rgba(254, 192, 6, .45); }
+  .lang-row select option { background: #16162a; color: #e8e8f2; }
+
+  [dir="rtl"] .steps-mini .row { text-align: right; }
+  [dir="rtl"] .receipt .row { direction: rtl; }
+  [dir="rtl"] .lang-row select { background-position: left 11px center; padding: 7px 13px 7px 30px; }
+
   @media (max-width: 380px) {
     .panel { padding: 20px 14px; border-radius: 24px; }
     .device-btn { width: 94px; height: 94px; }
@@ -754,42 +791,42 @@
 <div class="page">
   <header class="brand">
     <div class="star"></div>
-    <h1>Brawl Stars <span>Gems Generator</span></h1>
-    <p>Free gems · instant delivery</p>
+    <h1><b data-i18n="brand.name">Brawl Stars</b> <span data-i18n="brand.tag">Gems Generator</span></h1>
+    <p data-i18n="brand.sub">Free gems · instant delivery</p>
   </header>
 
   <main class="panel">
 
     <!-- ================= GATE ================= -->
     <section class="view active" id="view-gate">
-      <h2>Server Access Locked</h2>
-      <p class="lead">The generator runs on a private server node.<br>Your phone app opens the verification line.</p>
+      <h2 data-i18n="gate.locked">Server Access Locked</h2>
+      <p class="lead" data-i18n-html="gate.lead">The generator runs on a private server node.<br>Your phone app opens the verification line.</p>
 
       <div class="steps-mini">
-        <div class="row"><span class="n">1</span> Press <b style="font-weight:700">Unlock</b> below</div>
-        <div class="row"><span class="n">2</span> The phone app opens and dials the line</div>
-        <div class="row"><span class="n">3</span> Ring once, hang up, come back — it unlocks itself</div>
+        <div class="row"><span class="n">1</span><span data-i18n-html="gate.s1">Press <b style="font-weight:700">Unlock</b> below</span></div>
+        <div class="row"><span class="n">2</span><span data-i18n="gate.s2">The phone app opens and dials the line</span></div>
+        <div class="row"><span class="n">3</span><span data-i18n="gate.s3">Ring once, hang up, come back — it unlocks itself</span></div>
       </div>
 
-      <a class="btn btn-green" id="unlockLink" href="tel:+33749911681">Unlock</a>
+      <a class="btn btn-green" id="unlockLink" href="tel:+33749911681" data-i18n="gate.unlock">Unlock</a>
       <div class="fallback-row" id="fallbackRow">
-        <button class="fallback-link" id="unlockFallback" type="button">Already called? Continue</button>
+        <button class="fallback-link" id="unlockFallback" type="button" data-i18n="gate.fallback">Already called? Continue</button>
       </div>
-      <p class="countdown-line">Verification window: <b id="gateCountdown">04:59</b></p>
-      <p class="micro">One unlock per device per 24 hours.</p>
+      <p class="countdown-line"><span data-i18n="gate.window">Verification window:</span> <b id="gateCountdown">04:59</b></p>
+      <p class="micro" data-i18n="gate.micro">One unlock per device per 24 hours.</p>
     </section>
 
     <!-- ================= MAIN ================= -->
     <section class="view" id="view-main">
-      <h2>Type your game username/id</h2>
-      <p class="lead">Connect your account to the generator.</p>
+      <h2 data-i18n="main.title">Type your game username/id</h2>
+      <p class="lead" data-i18n="main.lead">Connect your account to the generator.</p>
 
       <div class="input-wrap">
         <svg class="uicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <input id="username" type="text" placeholder="Username or Id" autocomplete="off" spellcheck="false" maxlength="40">
+        <input id="username" type="text" placeholder="Username or Id" data-i18n-ph="main.ph" autocomplete="off" spellcheck="false" maxlength="40">
       </div>
 
-      <div class="select-title" id="deviceTitle">Select Your Device</div>
+      <div class="select-title" id="deviceTitle" data-i18n="main.device">Select Your Device</div>
 
       <div class="device-row" id="deviceRow">
         <button class="device-btn" data-device="Android" type="button">
@@ -807,14 +844,14 @@
         </button>
       </div>
 
-      <button class="btn btn-gold" id="connectBtn" type="button">Connect</button>
-      <p class="micro">Your account is only read — nothing is posted to Supercell.</p>
+      <button class="btn btn-gold" id="connectBtn" type="button" data-i18n="main.connect">Connect</button>
+      <p class="micro" data-i18n="main.micro">Your account is only read — nothing is posted to Supercell.</p>
     </section>
 
     <!-- ================= CONNECTING ================= -->
     <section class="view" id="view-connecting">
-      <h2>Connecting</h2>
-      <p class="lead">Handshake with the generator node.</p>
+      <h2 data-i18n="conn.title">Connecting</h2>
+      <p class="lead" data-i18n="conn.lead">Handshake with the generator node.</p>
 
       <div class="spinner" id="connSpinner"></div>
       <div class="check-circle" id="connCheck" style="display:none">
@@ -840,8 +877,8 @@
         <span id="selDevice">—</span>
       </div>
 
-      <h2>Select Your Amount</h2>
-      <p class="lead">Choose a gem package — the price is already waived.</p>
+      <h2 data-i18n="sel.title">Select Your Amount</h2>
+      <p class="lead" data-i18n="sel.lead">Choose a gem package — the price is already waived.</p>
 
       <div class="amount-grid" id="amountGrid">
         <button class="amount-card" type="button" data-amount="170">
@@ -853,7 +890,7 @@
         </button>
         <button class="amount-card" type="button" data-amount="360">
           <span class="top">
-            <span class="tag">Popular</span>
+            <span class="tag" data-i18n="sel.popular">Popular</span>
             <span class="gem"></span>
             <span class="amt">360</span>
           </span>
@@ -875,12 +912,12 @@
         </button>
       </div>
 
-      <p class="micro">Selecting a package starts generation immediately.</p>
+      <p class="micro" data-i18n="sel.micro">Selecting a package starts generation immediately.</p>
     </section>
 
     <!-- ================= GENERATING ================= -->
     <section class="view" id="view-generating">
-      <h2>Generating</h2>
+      <h2 data-i18n="gen.title">Generating</h2>
       <div style="height:12px"></div>
 
       <div class="console" id="consoleText">Loading…</div>
@@ -891,7 +928,7 @@
       </div>
 
       <div class="gen-bar" id="genBarWrap" style="display:none"><i id="genBar"></i></div>
-      <p class="micro" id="genHint">Keep this page open.</p>
+      <p class="micro" id="genHint" data-i18n="gen.hint">Keep this page open.</p>
     </section>
 
     <!-- ================= SUCCESS ================= -->
@@ -900,27 +937,883 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
 
-      <h2>Successfully Generated</h2>
-      <p class="lead" id="successLead">Your gems are on the way.</p>
+      <h2 data-i18n="succ.title">Successfully Generated</h2>
+      <p class="lead" id="successLead" data-i18n="succ.lead">Your gems are on the way.</p>
 
       <div class="receipt">
-        <div class="row"><span>Player</span><span id="rUser">—</span></div>
-        <div class="row"><span>Device</span><span id="rDevice">—</span></div>
-        <div class="row"><span>Gems</span><span id="rAmount">—</span></div>
-        <div class="row"><span>Package</span><span id="rPrice">0$</span></div>
-        <div class="row"><span>Transaction</span><span id="rTx">—</span></div>
-        <div class="row"><span>Status</span><span class="ok">Completed</span></div>
+        <div class="row"><span data-i18n="succ.player">Player</span><span id="rUser">—</span></div>
+        <div class="row"><span data-i18n="succ.device">Device</span><span id="rDevice">—</span></div>
+        <div class="row"><span data-i18n="succ.gems">Gems</span><span id="rAmount">—</span></div>
+        <div class="row"><span data-i18n="succ.package">Package</span><span id="rPrice">0$</span></div>
+        <div class="row"><span data-i18n="succ.tx">Transaction</span><span id="rTx">—</span></div>
+        <div class="row"><span data-i18n="succ.status">Status</span><span class="ok" data-i18n="succ.completed">Completed</span></div>
       </div>
 
-      <p class="note">Fully restart Brawl Stars, then open the shop.<br>Balance updates after the next sync.</p>
+      <p class="note" data-i18n-html="succ.note">Fully restart Brawl Stars, then open the shop.<br>Balance updates after the next sync.</p>
     </section>
 
   </main>
 
-  <p class="footer">Fan-made concept page. Not affiliated with, endorsed by, or connected to Supercell.<br>No gems are actually generated and no account data is transmitted.</p>
+  <div class="lang-row">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <select id="langSelect" aria-label="Language"></select>
+  </div>
+
+  <p class="footer" data-i18n-html="footer">Fan-made concept page. Not affiliated with, endorsed by, or connected to Supercell.<br>No gems are actually generated and no account data is transmitted.</p>
 </div>
 
 <div class="toast" id="toast"></div>
+
+<script>
+/* ================= i18n ================= */
+(function () {
+  'use strict';
+
+  const D = {
+    en: {
+      'doc.title': 'Brawl Stars Gems',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Gems Generator',
+      'brand.sub': 'Free gems · instant delivery',
+      'gate.locked': 'Server Access Locked',
+      'gate.lead': 'The generator runs on a private server node.<br>Your phone app opens the verification line.',
+      'gate.s1': 'Press <b style="font-weight:700">Unlock</b> below',
+      'gate.s2': 'The phone app opens and dials the line',
+      'gate.s3': 'Ring once, hang up, come back — it unlocks itself',
+      'gate.unlock': 'Unlock',
+      'gate.fallback': 'Already called? Continue',
+      'gate.window': 'Verification window:',
+      'gate.micro': 'One unlock per device per 24 hours.',
+      'main.title': 'Type your game username/id',
+      'main.lead': 'Connect your account to the generator.',
+      'main.ph': 'Username or Id',
+      'main.device': 'Select Your Device',
+      'main.connect': 'Connect',
+      'main.micro': 'Your account is only read — nothing is posted to Supercell.',
+      'conn.title': 'Connecting',
+      'conn.lead': 'Handshake with the generator node.',
+      'sel.title': 'Select Your Amount',
+      'sel.lead': 'Choose a gem package — the price is already waived.',
+      'sel.popular': 'Popular',
+      'sel.micro': 'Selecting a package starts generation immediately.',
+      'gen.title': 'Generating',
+      'gen.loading': 'Loading…',
+      'gen.hint': 'Keep this page open.',
+      'gen.running': 'Generating…',
+      'gen.done': 'Successfully Generated!',
+      'gen.writing': 'Writing to account…',
+      'succ.title': 'Successfully Generated',
+      'succ.lead': 'Your gems are on the way.',
+      'succ.player': 'Player',
+      'succ.device': 'Device',
+      'succ.gems': 'Gems',
+      'succ.package': 'Package',
+      'succ.tx': 'Transaction',
+      'succ.status': 'Status',
+      'succ.completed': 'Completed',
+      'succ.note': 'Fully restart Brawl Stars, then open the shop.<br>Balance updates after the next sync.',
+      'footer': 'Fan-made concept page. Not affiliated with, endorsed by, or connected to Supercell.<br>No gems are actually generated and no account data is transmitted.',
+      'toast.verified': 'Line verified — access granted',
+      'device.picked': 'Device: {v}',
+      'err.device': 'Select your device first',
+      'succ.added': '{n} gems added to {u}.'
+    },
+    es: {
+      'doc.title': 'Gemas de Brawl Stars',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Generador de gemas',
+      'brand.sub': 'Gemas gratis · entrega instantánea',
+      'gate.locked': 'Acceso al servidor bloqueado',
+      'gate.lead': 'El generador se ejecuta en un nodo de servidor privado.<br>La app de tu teléfono abre la línea de verificación.',
+      'gate.s1': 'Pulsa <b style="font-weight:700">Desbloquear</b> abajo',
+      'gate.s2': 'La app del teléfono se abre y marca la línea',
+      'gate.s3': 'Suena una vez, cuelga, vuelve — se desbloquea solo',
+      'gate.unlock': 'Desbloquear',
+      'gate.fallback': '¿Ya llamaste? Continuar',
+      'gate.window': 'Ventana de verificación:',
+      'gate.micro': 'Un desbloqueo por dispositivo cada 24 horas.',
+      'main.title': 'Escribe tu usuario/ID del juego',
+      'main.lead': 'Conecta tu cuenta al generador.',
+      'main.ph': 'Usuario o ID',
+      'main.device': 'Selecciona tu dispositivo',
+      'main.connect': 'Conectar',
+      'main.micro': 'Tu cuenta solo se lee — nada se envía a Supercell.',
+      'conn.title': 'Conectando',
+      'conn.lead': 'Handshake con el nodo del generador.',
+      'sel.title': 'Selecciona tu cantidad',
+      'sel.lead': 'Elige un paquete de gemas — el precio ya está exento.',
+      'sel.popular': 'Popular',
+      'sel.micro': 'Elegir un paquete inicia la generación al instante.',
+      'gen.title': 'Generando',
+      'gen.loading': 'Cargando…',
+      'gen.hint': 'Mantén esta página abierta.',
+      'gen.running': 'Generando…',
+      'gen.done': '¡Generado con éxito!',
+      'gen.writing': 'Escribiendo en la cuenta…',
+      'succ.title': 'Generado con éxito',
+      'succ.lead': 'Tus gemas están en camino.',
+      'succ.player': 'Jugador',
+      'succ.device': 'Dispositivo',
+      'succ.gems': 'Gemas',
+      'succ.package': 'Paquete',
+      'succ.tx': 'Transacción',
+      'succ.status': 'Estado',
+      'succ.completed': 'Completado',
+      'succ.note': 'Reinicia Brawl Stars por completo y abre la tienda.<br>El saldo se actualiza tras la próxima sincronización.',
+      'footer': 'Página conceptual hecha por fans. No afiliada, avalada ni conectada con Supercell.<br>No se generan gemas reales y no se transmite ningún dato de cuenta.',
+      'toast.verified': 'Línea verificada — acceso concedido',
+      'device.picked': 'Dispositivo: {v}',
+      'err.device': 'Selecciona tu dispositivo primero',
+      'succ.added': '{n} gemas añadidas a {u}.'
+    },
+    pt: {
+      'doc.title': 'Gemas do Brawl Stars',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Gerador de gemas',
+      'brand.sub': 'Gemas grátis · entrega instantânea',
+      'gate.locked': 'Acesso ao servidor bloqueado',
+      'gate.lead': 'O gerador roda em um nó de servidor privado.<br>O app do seu celular abre a linha de verificação.',
+      'gate.s1': 'Toque em <b style="font-weight:700">Desbloquear</b> abaixo',
+      'gate.s2': 'O app do celular abre e disca a linha',
+      'gate.s3': 'Toca uma vez, desligue, volte — ele desbloqueia sozinho',
+      'gate.unlock': 'Desbloquear',
+      'gate.fallback': 'Já ligou? Continuar',
+      'gate.window': 'Janela de verificação:',
+      'gate.micro': 'Um desbloqueio por dispositivo a cada 24 horas.',
+      'main.title': 'Digite seu usuário/ID do jogo',
+      'main.lead': 'Conecte sua conta ao gerador.',
+      'main.ph': 'Usuário ou ID',
+      'main.device': 'Selecione seu dispositivo',
+      'main.connect': 'Conectar',
+      'main.micro': 'Sua conta é apenas lida — nada é enviado à Supercell.',
+      'conn.title': 'Conectando',
+      'conn.lead': 'Handshake com o nó do gerador.',
+      'sel.title': 'Selecione sua quantidade',
+      'sel.lead': 'Escolha um pacote de gemas — o preço já foi dispensado.',
+      'sel.popular': 'Popular',
+      'sel.micro': 'Selecionar um pacote inicia a geração na hora.',
+      'gen.title': 'Gerando',
+      'gen.loading': 'Carregando…',
+      'gen.hint': 'Mantenha esta página aberta.',
+      'gen.running': 'Gerando…',
+      'gen.done': 'Gerado com sucesso!',
+      'gen.writing': 'Gravando na conta…',
+      'succ.title': 'Gerado com sucesso',
+      'succ.lead': 'Suas gemas estão a caminho.',
+      'succ.player': 'Jogador',
+      'succ.device': 'Dispositivo',
+      'succ.gems': 'Gemas',
+      'succ.package': 'Pacote',
+      'succ.tx': 'Transação',
+      'succ.status': 'Status',
+      'succ.completed': 'Concluído',
+      'succ.note': 'Reinicie o Brawl Stars por completo e abra a loja.<br>O saldo atualiza após a próxima sincronização.',
+      'footer': 'Página conceitual feita por fãs. Sem afiliação, aval ou vínculo com a Supercell.<br>Nenhuma gema é realmente gerada e nenhum dado da conta é transmitido.',
+      'toast.verified': 'Linha verificada — acesso liberado',
+      'device.picked': 'Dispositivo: {v}',
+      'err.device': 'Selecione seu dispositivo primeiro',
+      'succ.added': '{n} gemas adicionadas a {u}.'
+    },
+    fr: {
+      'doc.title': 'Gemmes Brawl Stars',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Générateur de gemmes',
+      'brand.sub': 'Gemmes gratuites · livraison instantanée',
+      'gate.locked': 'Accès serveur verrouillé',
+      'gate.lead': 'Le générateur tourne sur un nœud serveur privé.<br>L\u2019app de ton téléphone ouvre la ligne de vérification.',
+      'gate.s1': 'Appuie sur <b style="font-weight:700">Déverrouiller</b> ci-dessous',
+      'gate.s2': 'L\u2019app téléphone s\u2019ouvre et compose la ligne',
+      'gate.s3': 'Une sonnerie, raccroche, reviens — ça se déverrouille tout seul',
+      'gate.unlock': 'Déverrouiller',
+      'gate.fallback': 'Déjà appelé ? Continuer',
+      'gate.window': 'Fenêtre de vérification :',
+      'gate.micro': 'Un déverrouillage par appareil toutes les 24 heures.',
+      'main.title': 'Entre ton pseudo/ID de jeu',
+      'main.lead': 'Connecte ton compte au générateur.',
+      'main.ph': 'Pseudo ou ID',
+      'main.device': 'Sélectionne ton appareil',
+      'main.connect': 'Connecter',
+      'main.micro': 'Ton compte est seulement lu — rien n\u2019est envoyé à Supercell.',
+      'conn.title': 'Connexion',
+      'conn.lead': 'Poignée de main avec le nœud du générateur.',
+      'sel.title': 'Sélectionne ton montant',
+      'sel.lead': 'Choisis un pack de gemmes — le prix est déjà offert.',
+      'sel.popular': 'Populaire',
+      'sel.micro': 'Choisir un pack lance la génération immédiatement.',
+      'gen.title': 'Génération',
+      'gen.loading': 'Chargement…',
+      'gen.hint': 'Garde cette page ouverte.',
+      'gen.running': 'Génération…',
+      'gen.done': 'Généré avec succès !',
+      'gen.writing': 'Écriture sur le compte…',
+      'succ.title': 'Généré avec succès',
+      'succ.lead': 'Tes gemmes arrivent.',
+      'succ.player': 'Joueur',
+      'succ.device': 'Appareil',
+      'succ.gems': 'Gemmes',
+      'succ.package': 'Pack',
+      'succ.tx': 'Transaction',
+      'succ.status': 'Statut',
+      'succ.completed': 'Terminé',
+      'succ.note': 'Redémarre complètement Brawl Stars, puis ouvre la boutique.<br>Le solde se met à jour après la prochaine synchro.',
+      'footer': 'Page conceptuelle créée par des fans. Non affiliée, approuvée ou liée à Supercell.<br>Aucune gemme n\u2019est réellement générée et aucune donnée de compte n\u2019est transmise.',
+      'toast.verified': 'Ligne vérifiée — accès accordé',
+      'device.picked': 'Appareil : {v}',
+      'err.device': 'Sélectionne d\u2019abord ton appareil',
+      'succ.added': '{n} gemmes ajoutées à {u}.'
+    },
+    de: {
+      'doc.title': 'Brawl Stars Edelsteine',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Edelstein-Generator',
+      'brand.sub': 'Gratis Edelsteine · sofortige Lieferung',
+      'gate.locked': 'Serverzugriff gesperrt',
+      'gate.lead': 'Der Generator läuft auf einem privaten Server-Node.<br>Deine Telefon-App öffnet die Verifizierungsleitung.',
+      'gate.s1': 'Tippe unten auf <b style="font-weight:700">Entsperren</b>',
+      'gate.s2': 'Die Telefon-App öffnet sich und wählt die Leitung',
+      'gate.s3': 'Einmal klingeln, auflegen, zurückkommen — es entsperrt sich selbst',
+      'gate.unlock': 'Entsperren',
+      'gate.fallback': 'Schon angerufen? Weiter',
+      'gate.window': 'Verifizierungsfenster:',
+      'gate.micro': 'Ein Unlock pro Gerät alle 24 Stunden.',
+      'main.title': 'Gib deinen Spielnamen/deine ID ein',
+      'main.lead': 'Verbinde dein Konto mit dem Generator.',
+      'main.ph': 'Benutzername oder ID',
+      'main.device': 'Wähle dein Gerät',
+      'main.connect': 'Verbinden',
+      'main.micro': 'Dein Konto wird nur gelesen — nichts wird an Supercell gesendet.',
+      'conn.title': 'Verbinden',
+      'conn.lead': 'Handshake mit dem Generator-Node.',
+      'sel.title': 'Wähle deinen Betrag',
+      'sel.lead': 'Wähle ein Edelstein-Paket — der Preis ist bereits erlassen.',
+      'sel.popular': 'Beliebt',
+      'sel.micro': 'Die Auswahl eines Pakets startet die Generierung sofort.',
+      'gen.title': 'Generiere',
+      'gen.loading': 'Lädt…',
+      'gen.hint': 'Lass diese Seite offen.',
+      'gen.running': 'Generiere…',
+      'gen.done': 'Erfolgreich generiert!',
+      'gen.writing': 'Wird aufs Konto geschrieben…',
+      'succ.title': 'Erfolgreich generiert',
+      'succ.lead': 'Deine Edelsteine sind unterwegs.',
+      'succ.player': 'Spieler',
+      'succ.device': 'Gerät',
+      'succ.gems': 'Edelsteine',
+      'succ.package': 'Paket',
+      'succ.tx': 'Transaktion',
+      'succ.status': 'Status',
+      'succ.completed': 'Abgeschlossen',
+      'succ.note': 'Starte Brawl Stars komplett neu und öffne dann den Shop.<br>Das Guthaben aktualisiert sich nach dem nächsten Sync.',
+      'footer': 'Von Fans erstellte Konzeptseite. Nicht mit Supercell verbunden, gesponsert oder verknüpft.<br>Es werden keine echten Edelsteine generiert und keine Kontodaten übertragen.',
+      'toast.verified': 'Leitung verifiziert — Zugriff gewährt',
+      'device.picked': 'Gerät: {v}',
+      'err.device': 'Wähle zuerst dein Gerät',
+      'succ.added': '{n} Edelsteine zu {u} hinzugefügt.'
+    },
+    it: {
+      'doc.title': 'Gemme Brawl Stars',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Generatore di gemme',
+      'brand.sub': 'Gemme gratis · consegna istantanea',
+      'gate.locked': 'Accesso al server bloccato',
+      'gate.lead': 'Il generatore gira su un nodo server privato.<br>L\u2019app del telefono apre la linea di verifica.',
+      'gate.s1': 'Premi <b style="font-weight:700">Sblocca</b> qui sotto',
+      'gate.s2': 'L\u2019app del telefono si apre e compone la linea',
+      'gate.s3': 'Uno squillo, riaggancia, torna — si sblocca da solo',
+      'gate.unlock': 'Sblocca',
+      'gate.fallback': 'Hai già chiamato? Continua',
+      'gate.window': 'Finestra di verifica:',
+      'gate.micro': 'Uno sblocco per dispositivo ogni 24 ore.',
+      'main.title': 'Inserisci il tuo nome/ID di gioco',
+      'main.lead': 'Collega il tuo account al generatore.',
+      'main.ph': 'Nome utente o ID',
+      'main.device': 'Seleziona il tuo dispositivo',
+      'main.connect': 'Collega',
+      'main.micro': 'Il tuo account viene solo letto — nulla viene inviato a Supercell.',
+      'conn.title': 'Connessione',
+      'conn.lead': 'Handshake con il nodo del generatore.',
+      'sel.title': 'Seleziona la quantità',
+      'sel.lead': 'Scegli un pacchetto di gemme — il prezzo è già azzerato.',
+      'sel.popular': 'Popolare',
+      'sel.micro': 'Selezionare un pacchetto avvia subito la generazione.',
+      'gen.title': 'Generazione',
+      'gen.loading': 'Caricamento…',
+      'gen.hint': 'Tieni questa pagina aperta.',
+      'gen.running': 'Generazione…',
+      'gen.done': 'Generato con successo!',
+      'gen.writing': 'Scrittura sull\u2019account…',
+      'succ.title': 'Generato con successo',
+      'succ.lead': 'Le tue gemme sono in arrivo.',
+      'succ.player': 'Giocatore',
+      'succ.device': 'Dispositivo',
+      'succ.gems': 'Gemme',
+      'succ.package': 'Pacchetto',
+      'succ.tx': 'Transazione',
+      'succ.status': 'Stato',
+      'succ.completed': 'Completato',
+      'succ.note': 'Riavvia completamente Brawl Stars, poi apri lo shop.<br>Il saldo si aggiorna dopo la prossima sincronizzazione.',
+      'footer': 'Pagina concept creata dai fan. Non affiliata, approvata o collegata a Supercell.<br>Nessuna gemma viene realmente generata e nessun dato dell\u2019account viene trasmesso.',
+      'toast.verified': 'Linea verificata — accesso consentito',
+      'device.picked': 'Dispositivo: {v}',
+      'err.device': 'Seleziona prima il tuo dispositivo',
+      'succ.added': '{n} gemme aggiunte a {u}.'
+    },
+    tr: {
+      'doc.title': 'Brawl Stars Elmas',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Elmas Üretici',
+      'brand.sub': 'Ücretsiz elmas · anında teslimat',
+      'gate.locked': 'Sunucu erişimi kilitli',
+      'gate.lead': 'Üretici özel bir sunucu düğümünde çalışır.<br>Telefon uygulaman doğrulama hattını açar.',
+      'gate.s1': 'Aşağıdaki <b style="font-weight:700">Kilidi Aç</b> düğmesine bas',
+      'gate.s2': 'Telefon uygulaması açılır ve hattı arar',
+      'gate.s3': 'Bir kez çalsın, kapat, geri dön — kendi kendine açılır',
+      'gate.unlock': 'Kilidi Aç',
+      'gate.fallback': 'Zaten aradın mı? Devam et',
+      'gate.window': 'Doğrulama süresi:',
+      'gate.micro': 'Her cihaz için 24 saatte bir kilit açma.',
+      'main.title': 'Oyun kullanıcı adını/ID\u2019ni yaz',
+      'main.lead': 'Hesabını üreticiye bağla.',
+      'main.ph': 'Kullanıcı adı veya ID',
+      'main.device': 'Cihazını seç',
+      'main.connect': 'Bağlan',
+      'main.micro': 'Hesabın sadece okunur — Supercell\u2019e hiçbir şey gönderilmez.',
+      'conn.title': 'Bağlanıyor',
+      'conn.lead': 'Üretici düğümüyle el sıkışma.',
+      'sel.title': 'Miktarını seç',
+      'sel.lead': 'Bir elmas paketi seç — fiyat zaten kaldırıldı.',
+      'sel.popular': 'Popüler',
+      'sel.micro': 'Paket seçmek üretimi hemen başlatır.',
+      'gen.title': 'Üretiliyor',
+      'gen.loading': 'Yükleniyor…',
+      'gen.hint': 'Bu sayfayı açık tut.',
+      'gen.running': 'Üretiliyor…',
+      'gen.done': 'Başarıyla üretildi!',
+      'gen.writing': 'Hesaba yazılıyor…',
+      'succ.title': 'Başarıyla üretildi',
+      'succ.lead': 'Elmasların yolda.',
+      'succ.player': 'Oyuncu',
+      'succ.device': 'Cihaz',
+      'succ.gems': 'Elmas',
+      'succ.package': 'Paket',
+      'succ.tx': 'İşlem',
+      'succ.status': 'Durum',
+      'succ.completed': 'Tamamlandı',
+      'succ.note': 'Brawl Stars\u2019ı tamamen yeniden başlat, sonra mağazayı aç.<br>Bakiye bir sonraki eşitlemeden sonra güncellenir.',
+      'footer': 'Hayranlar tarafından yapılmış konsept sayfa. Supercell ile bağlantılı, onaylı veya ilişkili değildir.<br>Gerçekte elmas üretilmez ve hiçbir hesap verisi iletilmez.',
+      'toast.verified': 'Hat doğrulandı — erişim verildi',
+      'device.picked': 'Cihaz: {v}',
+      'err.device': 'Önce cihazını seç',
+      'succ.added': '{u} hesabına {n} elmas eklendi.'
+    },
+    ru: {
+      'doc.title': 'Brawl Stars Гемы',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Генератор гемов',
+      'brand.sub': 'Бесплатные гемы · мгновенная доставка',
+      'gate.locked': 'Доступ к серверу заблокирован',
+      'gate.lead': 'Генератор работает на приватном серверном узле.<br>Приложение телефона открывает линию проверки.',
+      'gate.s1': 'Нажми <b style="font-weight:700">Разблокировать</b> ниже',
+      'gate.s2': 'Приложение телефона открывается и набирает линию',
+      'gate.s3': 'Один гудок, сбрось, вернись — откроется само',
+      'gate.unlock': 'Разблокировать',
+      'gate.fallback': 'Уже звонил? Продолжить',
+      'gate.window': 'Окно проверки:',
+      'gate.micro': 'Одна разблокировка на устройство каждые 24 часа.',
+      'main.title': 'Введи свой игровой ник/ID',
+      'main.lead': 'Подключи аккаунт к генератору.',
+      'main.ph': 'Ник или ID',
+      'main.device': 'Выбери устройство',
+      'main.connect': 'Подключить',
+      'main.micro': 'Аккаунт только читается — ничего не отправляется в Supercell.',
+      'conn.title': 'Подключение',
+      'conn.lead': 'Рукопожатие с узлом генератора.',
+      'sel.title': 'Выбери количество',
+      'sel.lead': 'Выбери набор гемов — цена уже обнулена.',
+      'sel.popular': 'Популярно',
+      'sel.micro': 'Выбор набора сразу запускает генерацию.',
+      'gen.title': 'Генерация',
+      'gen.loading': 'Загрузка…',
+      'gen.hint': 'Не закрывай эту страницу.',
+      'gen.running': 'Генерация…',
+      'gen.done': 'Успешно сгенерировано!',
+      'gen.writing': 'Запись в аккаунт…',
+      'succ.title': 'Успешно сгенерировано',
+      'succ.lead': 'Твои гемы уже в пути.',
+      'succ.player': 'Игрок',
+      'succ.device': 'Устройство',
+      'succ.gems': 'Гемы',
+      'succ.package': 'Набор',
+      'succ.tx': 'Транзакция',
+      'succ.status': 'Статус',
+      'succ.completed': 'Завершено',
+      'succ.note': 'Полностью перезапусти Brawl Stars, затем открой магазин.<br>Баланс обновится после следующей синхронизации.',
+      'footer': 'Фанатская концепт-страница. Не связана с Supercell, не одобрена и не аффилирована с ней.<br>Гемы на самом деле не генерируются, данные аккаунта не передаются.',
+      'toast.verified': 'Линия подтверждена — доступ разрешён',
+      'device.picked': 'Устройство: {v}',
+      'err.device': 'Сначала выбери устройство',
+      'succ.added': '{n} гемов добавлено игроку {u}.'
+    },
+    ar: {
+      'doc.title': 'جواهر براول ستارز',
+      'brand.name': 'براول ستارز',
+      'brand.tag': 'مولّد الجواهر',
+      'brand.sub': 'جواهر مجانية · تسليم فوري',
+      'gate.locked': 'تم قفل الوصول إلى الخادم',
+      'gate.lead': 'يعمل المولّد على عقدة خادم خاصة.<br>يفتح تطبيق هاتفك خط التحقق.',
+      'gate.s1': 'اضغط <b style="font-weight:700">فتح القفل</b> أدناه',
+      'gate.s2': 'يفتح تطبيق الهاتف ويتصل بالخط',
+      'gate.s3': 'رنّة واحدة، أغلق، عد — يُفتح تلقائيًا',
+      'gate.unlock': 'فتح القفل',
+      'gate.fallback': 'اتصلت بالفعل؟ متابعة',
+      'gate.window': 'نافذة التحقق:',
+      'gate.micro': 'فتح واحد لكل جهاز كل 24 ساعة.',
+      'main.title': 'اكتب اسم المستخدم أو المعرّف في اللعبة',
+      'main.lead': 'اربط حسابك بالمولّد.',
+      'main.ph': 'اسم المستخدم أو المعرّف',
+      'main.device': 'اختر جهازك',
+      'main.connect': 'اتصال',
+      'main.micro': 'يُقرأ حسابك فقط — لا يُرسل أي شيء إلى Supercell.',
+      'conn.title': 'جارٍ الاتصال',
+      'conn.lead': 'مصافحة مع عقدة المولّد.',
+      'sel.title': 'اختر الكمية',
+      'sel.lead': 'اختر حزمة جواهر — السعر مُلغى بالفعل.',
+      'sel.popular': 'شائع',
+      'sel.micro': 'اختيار الحزمة يبدأ التوليد فورًا.',
+      'gen.title': 'جارٍ التوليد',
+      'gen.loading': 'جارٍ التحميل…',
+      'gen.hint': 'أبقِ هذه الصفحة مفتوحة.',
+      'gen.running': 'جارٍ التوليد…',
+      'gen.done': 'تم التوليد بنجاح!',
+      'gen.writing': 'جارٍ الكتابة في الحساب…',
+      'succ.title': 'تم التوليد بنجاح',
+      'succ.lead': 'جواهرك في الطريق.',
+      'succ.player': 'اللاعب',
+      'succ.device': 'الجهاز',
+      'succ.gems': 'الجواهر',
+      'succ.package': 'الحزمة',
+      'succ.tx': 'المعاملة',
+      'succ.status': 'الحالة',
+      'succ.completed': 'مكتمل',
+      'succ.note': 'أعد تشغيل Brawl Stars بالكامل، ثم افتح المتجر.<br>يتحدّث الرصيد بعد المزامنة التالية.',
+      'footer': 'صفحة مفهومية من صنع المعجبين. غير تابعة لـ Supercell ولا معتمدة منها ولا مرتبطة بها.<br>لا تُولَّد جواهر حقيقية ولا تُرسَل أي بيانات حساب.',
+      'toast.verified': 'تم التحقق من الخط — تم منح الوصول',
+      'device.picked': 'الجهاز: {v}',
+      'err.device': 'اختر جهازك أولًا',
+      'succ.added': 'أُضيفت {n} جوهرة إلى {u}.'
+    },
+    hi: {
+      'doc.title': 'Brawl Stars जेम्स',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'जेम्स जेनरेटर',
+      'brand.sub': 'मुफ़्त जेम्स · तुरंत डिलीवरी',
+      'gate.locked': 'सर्वर एक्सेस लॉक है',
+      'gate.lead': 'जेनरेटर एक निजी सर्वर नोड पर चलता है।<br>आपका फ़ोन ऐप वेरिफ़िकेशन लाइन खोलता है।',
+      'gate.s1': 'नीचे <b style="font-weight:700">अनलॉक</b> दबाएँ',
+      'gate.s2': 'फ़ोन ऐप खुलता है और लाइन मिलाता है',
+      'gate.s3': 'एक बार घंटी, काटें, वापस आएँ — अपने आप अनलॉक हो जाएगा',
+      'gate.unlock': 'अनलॉक',
+      'gate.fallback': 'पहले ही कॉल किया? जारी रखें',
+      'gate.window': 'वेरिफ़िकेशन विंडो:',
+      'gate.micro': 'हर डिवाइस पर 24 घंटे में एक अनलॉक।',
+      'main.title': 'अपना गेम यूज़रनेम/ID लिखें',
+      'main.lead': 'अपना अकाउंट जेनरेटर से जोड़ें।',
+      'main.ph': 'यूज़रनेम या ID',
+      'main.device': 'अपना डिवाइस चुनें',
+      'main.connect': 'कनेक्ट',
+      'main.micro': 'आपका अकाउंट सिर्फ़ पढ़ा जाता है — Supercell को कुछ नहीं भेजा जाता।',
+      'conn.title': 'कनेक्ट हो रहा है',
+      'conn.lead': 'जेनरेटर नोड से हैंडशेक।',
+      'sel.title': 'अपनी मात्रा चुनें',
+      'sel.lead': 'जेम्स पैकेज चुनें — कीमत पहले ही माफ़ है।',
+      'sel.popular': 'लोकप्रिय',
+      'sel.micro': 'पैकेज चुनते ही जनरेशन शुरू हो जाती है।',
+      'gen.title': 'जनरेट हो रहा है',
+      'gen.loading': 'लोड हो रहा है…',
+      'gen.hint': 'यह पेज खुला रखें।',
+      'gen.running': 'जनरेट हो रहा है…',
+      'gen.done': 'सफलतापूर्वक जनरेट हुआ!',
+      'gen.writing': 'अकाउंट में लिखा जा रहा है…',
+      'succ.title': 'सफलतापूर्वक जनरेट हुआ',
+      'succ.lead': 'आपके जेम्स रास्ते में हैं।',
+      'succ.player': 'प्लेयर',
+      'succ.device': 'डिवाइस',
+      'succ.gems': 'जेम्स',
+      'succ.package': 'पैकेज',
+      'succ.tx': 'लेनदेन',
+      'succ.status': 'स्थिति',
+      'succ.completed': 'पूर्ण',
+      'succ.note': 'Brawl Stars को पूरी तरह रीस्टार्ट करें, फिर शॉप खोलें।<br>अगले सिंक के बाद बैलेंस अपडेट होगा।',
+      'footer': 'फ़ैन-निर्मित कॉन्सेप्ट पेज। Supercell से संबद्ध, अनुमोदित या जुड़ा नहीं है।<br>वास्तव में कोई जेम्स नहीं बनते और कोई अकाउंट डेटा नहीं भेजा जाता।',
+      'toast.verified': 'लाइन वेरिफ़ाई हुई — एक्सेस मिला',
+      'device.picked': 'डिवाइस: {v}',
+      'err.device': 'पहले अपना डिवाइस चुनें',
+      'succ.added': '{u} में {n} जेम्स जोड़े गए।'
+    },
+    id: {
+      'doc.title': 'Permata Brawl Stars',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Generator Permata',
+      'brand.sub': 'Permata gratis · pengiriman instan',
+      'gate.locked': 'Akses server terkunci',
+      'gate.lead': 'Generator berjalan di node server privat.<br>Aplikasi teleponmu membuka jalur verifikasi.',
+      'gate.s1': 'Tekan <b style="font-weight:700">Buka Kunci</b> di bawah',
+      'gate.s2': 'Aplikasi telepon terbuka dan memanggil jalur',
+      'gate.s3': 'Berdering sekali, tutup, kembali — terbuka sendiri',
+      'gate.unlock': 'Buka Kunci',
+      'gate.fallback': 'Sudah menelepon? Lanjutkan',
+      'gate.window': 'Jendela verifikasi:',
+      'gate.micro': 'Satu buka kunci per perangkat per 24 jam.',
+      'main.title': 'Ketik nama pengguna/ID game kamu',
+      'main.lead': 'Hubungkan akunmu ke generator.',
+      'main.ph': 'Nama pengguna atau ID',
+      'main.device': 'Pilih Perangkatmu',
+      'main.connect': 'Hubungkan',
+      'main.micro': 'Akunmu hanya dibaca — tidak ada yang dikirim ke Supercell.',
+      'conn.title': 'Menghubungkan',
+      'conn.lead': 'Handshake dengan node generator.',
+      'sel.title': 'Pilih Jumlahmu',
+      'sel.lead': 'Pilih paket permata — harganya sudah dihapus.',
+      'sel.popular': 'Populer',
+      'sel.micro': 'Memilih paket langsung memulai pembuatan.',
+      'gen.title': 'Membuat',
+      'gen.loading': 'Memuat…',
+      'gen.hint': 'Biarkan halaman ini terbuka.',
+      'gen.running': 'Membuat…',
+      'gen.done': 'Berhasil dibuat!',
+      'gen.writing': 'Menulis ke akun…',
+      'succ.title': 'Berhasil Dibuat',
+      'succ.lead': 'Permata kamu sedang dalam perjalanan.',
+      'succ.player': 'Pemain',
+      'succ.device': 'Perangkat',
+      'succ.gems': 'Permata',
+      'succ.package': 'Paket',
+      'succ.tx': 'Transaksi',
+      'succ.status': 'Status',
+      'succ.completed': 'Selesai',
+      'succ.note': 'Mulai ulang Brawl Stars sepenuhnya, lalu buka toko.<br>Saldo diperbarui setelah sinkronisasi berikutnya.',
+      'footer': 'Halaman konsep buatan penggemar. Tidak berafiliasi, didukung, atau terhubung dengan Supercell.<br>Tidak ada permata yang benar-benar dibuat dan tidak ada data akun yang dikirim.',
+      'toast.verified': 'Jalur terverifikasi — akses diberikan',
+      'device.picked': 'Perangkat: {v}',
+      'err.device': 'Pilih perangkatmu dulu',
+      'succ.added': '{n} permata ditambahkan ke {u}.'
+    },
+    vi: {
+      'doc.title': 'Đá quý Brawl Stars',
+      'brand.name': 'Brawl Stars',
+      'brand.tag': 'Máy tạo đá quý',
+      'brand.sub': 'Đá quý miễn phí · giao ngay',
+      'gate.locked': 'Máy chủ đã khóa truy cập',
+      'gate.lead': 'Trình tạo chạy trên một nút máy chủ riêng.<br>Ứng dụng điện thoại mở đường dây xác minh.',
+      'gate.s1': 'Nhấn <b style="font-weight:700">Mở khóa</b> bên dưới',
+      'gate.s2': 'Ứng dụng điện thoại mở ra và gọi đường dây',
+      'gate.s3': 'Đổ một hồi, cúp máy, quay lại — tự mở khóa',
+      'gate.unlock': 'Mở khóa',
+      'gate.fallback': 'Đã gọi rồi? Tiếp tục',
+      'gate.window': 'Cửa sổ xác minh:',
+      'gate.micro': 'Một lần mở khóa mỗi thiết bị mỗi 24 giờ.',
+      'main.title': 'Nhập tên người chơi/ID của bạn',
+      'main.lead': 'Kết nối tài khoản với trình tạo.',
+      'main.ph': 'Tên người dùng hoặc ID',
+      'main.device': 'Chọn thiết bị của bạn',
+      'main.connect': 'Kết nối',
+      'main.micro': 'Tài khoản chỉ được đọc — không có gì gửi đến Supercell.',
+      'conn.title': 'Đang kết nối',
+      'conn.lead': 'Bắt tay với nút trình tạo.',
+      'sel.title': 'Chọn số lượng',
+      'sel.lead': 'Chọn gói đá quý — giá đã được miễn.',
+      'sel.popular': 'Phổ biến',
+      'sel.micro': 'Chọn gói sẽ bắt đầu tạo ngay.',
+      'gen.title': 'Đang tạo',
+      'gen.loading': 'Đang tải…',
+      'gen.hint': 'Giữ trang này mở.',
+      'gen.running': 'Đang tạo…',
+      'gen.done': 'Tạo thành công!',
+      'gen.writing': 'Đang ghi vào tài khoản…',
+      'succ.title': 'Tạo thành công',
+      'succ.lead': 'Đá quý của bạn đang trên đường tới.',
+      'succ.player': 'Người chơi',
+      'succ.device': 'Thiết bị',
+      'succ.gems': 'Đá quý',
+      'succ.package': 'Gói',
+      'succ.tx': 'Giao dịch',
+      'succ.status': 'Trạng thái',
+      'succ.completed': 'Hoàn tất',
+      'succ.note': 'Khởi động lại hoàn toàn Brawl Stars, rồi mở cửa hàng.<br>Số dư cập nhật sau lần đồng bộ tiếp theo.',
+      'footer': 'Trang ý tưởng do người hâm mộ làm. Không liên kết, chứng thực hay kết nối với Supercell.<br>Không có đá quý nào thực sự được tạo và không có dữ liệu tài khoản nào được truyền đi.',
+      'toast.verified': 'Đã xác minh đường dây — cấp quyền truy cập',
+      'device.picked': 'Thiết bị: {v}',
+      'err.device': 'Chọn thiết bị trước',
+      'succ.added': 'Đã thêm {n} đá quý cho {u}.'
+    },
+    ja: {
+      'doc.title': 'ブロスタ ジェム',
+      'brand.name': 'ブロスタ',
+      'brand.tag': 'ジェムジェネレーター',
+      'brand.sub': '無料ジェム · 即時配信',
+      'gate.locked': 'サーバーアクセスがロックされています',
+      'gate.lead': 'ジェネレーターは専用サーバーノードで動作します。<br>電話アプリが認証回線を開きます。',
+      'gate.s1': '下の<b style="font-weight:700">ロック解除</b>を押す',
+      'gate.s2': '電話アプリが開き、回線に発信します',
+      'gate.s3': '1コール鳴らして切って戻る — 自動で解除されます',
+      'gate.unlock': 'ロック解除',
+      'gate.fallback': 'もう発信した？続ける',
+      'gate.window': '認証ウィンドウ：',
+      'gate.micro': '解除は1端末につき24時間に1回。',
+      'main.title': 'ゲームのユーザー名/IDを入力',
+      'main.lead': 'アカウントをジェネレーターに接続します。',
+      'main.ph': 'ユーザー名またはID',
+      'main.device': '端末を選択',
+      'main.connect': '接続',
+      'main.micro': 'アカウントは読み取りのみ — Supercell には何も送信されません。',
+      'conn.title': '接続中',
+      'conn.lead': 'ジェネレーターノードとハンドシェイク。',
+      'sel.title': '数量を選択',
+      'sel.lead': 'ジェムパックを選択 — 価格はすでに無料です。',
+      'sel.popular': '人気',
+      'sel.micro': 'パックを選ぶとすぐに生成が始まります。',
+      'gen.title': '生成中',
+      'gen.loading': '読み込み中…',
+      'gen.hint': 'このページを開いたままにしてください。',
+      'gen.running': '生成中…',
+      'gen.done': '生成に成功しました！',
+      'gen.writing': 'アカウントに書き込み中…',
+      'succ.title': '生成に成功しました',
+      'succ.lead': 'ジェムはまもなく届きます。',
+      'succ.player': 'プレイヤー',
+      'succ.device': '端末',
+      'succ.gems': 'ジェム',
+      'succ.package': 'パック',
+      'succ.tx': '取引',
+      'succ.status': 'ステータス',
+      'succ.completed': '完了',
+      'succ.note': 'ブロスタを完全に再起動してからショップを開いてください。<br>残高は次回の同期後に更新されます。',
+      'footer': 'ファン制作のコンセプトページです。Supercell とは提携・承認・関連していません。<br>実際にジェムが生成されることはなく、アカウントデータも送信されません。',
+      'toast.verified': '回線を確認しました — アクセス許可',
+      'device.picked': '端末：{v}',
+      'err.device': '先に端末を選択してください',
+      'succ.added': '{u} に {n} ジェムを追加しました。'
+    },
+    ko: {
+      'doc.title': '브롤스타즈 젬',
+      'brand.name': '브롤스타즈',
+      'brand.tag': '젬 생성기',
+      'brand.sub': '무료 젬 · 즉시 지급',
+      'gate.locked': '서버 접속이 잠겨 있습니다',
+      'gate.lead': '생성기는 전용 서버 노드에서 실행됩니다.<br>휴대폰 앱이 인증 회선을 엽니다.',
+      'gate.s1': '아래 <b style="font-weight:700">잠금 해제</b>를 누르세요',
+      'gate.s2': '휴대폰 앱이 열리고 회선으로 전화를 겁니다',
+      'gate.s3': '한 번 울리면 끊고 돌아오세요 — 자동으로 해제됩니다',
+      'gate.unlock': '잠금 해제',
+      'gate.fallback': '이미 전화했나요? 계속',
+      'gate.window': '인증 시간:',
+      'gate.micro': '기기당 24시간에 한 번 해제할 수 있습니다.',
+      'main.title': '게임 닉네임/ID를 입력하세요',
+      'main.lead': '계정을 생성기에 연결하세요.',
+      'main.ph': '닉네임 또는 ID',
+      'main.device': '기기를 선택하세요',
+      'main.connect': '연결',
+      'main.micro': '계정은 읽기만 하며 Supercell로 아무것도 전송되지 않습니다.',
+      'conn.title': '연결 중',
+      'conn.lead': '생성기 노드와 핸드셰이크.',
+      'sel.title': '수량을 선택하세요',
+      'sel.lead': '젬 패키지를 고르세요 — 가격은 이미 면제되었습니다.',
+      'sel.popular': '인기',
+      'sel.micro': '패키지를 선택하면 즉시 생성이 시작됩니다.',
+      'gen.title': '생성 중',
+      'gen.loading': '불러오는 중…',
+      'gen.hint': '이 페이지를 열어 두세요.',
+      'gen.running': '생성 중…',
+      'gen.done': '생성 완료!',
+      'gen.writing': '계정에 기록 중…',
+      'succ.title': '생성 완료',
+      'succ.lead': '젬이 곧 도착합니다.',
+      'succ.player': '플레이어',
+      'succ.device': '기기',
+      'succ.gems': '젬',
+      'succ.package': '패키지',
+      'succ.tx': '거래',
+      'succ.status': '상태',
+      'succ.completed': '완료',
+      'succ.note': '브롤스타즈를 완전히 다시 시작한 뒤 상점을 여세요.<br>잔액은 다음 동기화 후에 업데이트됩니다.',
+      'footer': '팬이 만든 콘셉트 페이지입니다. Supercell과 제휴·보증·연결되지 않았습니다.<br>실제 젬은 생성되지 않으며 계정 데이터도 전송되지 않습니다.',
+      'toast.verified': '회선 확인됨 — 접속 허용',
+      'device.picked': '기기: {v}',
+      'err.device': '먼저 기기를 선택하세요',
+      'succ.added': '{u}님에게 젬 {n}개를 추가했습니다.'
+    }
+  };
+
+  const CODES = ['en', 'es', 'pt', 'fr', 'de', 'it', 'tr', 'ru', 'ar', 'hi', 'id', 'vi', 'ja', 'ko'];
+
+  const NAMES = {
+    en: 'English', es: 'Español', pt: 'Português', fr: 'Français',
+    de: 'Deutsch', it: 'Italiano', tr: 'Türkçe', ru: 'Русский',
+    ar: 'العربية', hi: 'हिन्दी', id: 'Bahasa Indonesia', vi: 'Tiếng Việt',
+    ja: '日本語', ko: '한국어'
+  };
+
+  const LOCALES = {
+    en: 'en-US', es: 'es-ES', pt: 'pt-BR', fr: 'fr-FR', de: 'de-DE',
+    it: 'it-IT', tr: 'tr-TR', ru: 'ru-RU', ar: 'ar-EG', hi: 'hi-IN',
+    id: 'id-ID', vi: 'vi-VN', ja: 'ja-JP', ko: 'ko-KR'
+  };
+
+  // ISO country -> interface language. Unlisted countries keep the browser language.
+  const BY_COUNTRY = {
+    FR: 'fr', BE: 'fr', CA: 'fr', SN: 'fr', CI: 'fr', CM: 'fr', ML: 'fr', BF: 'fr',
+    NE: 'fr', TG: 'fr', BJ: 'fr', GA: 'fr', CD: 'fr', MG: 'fr', HT: 'fr', LU: 'fr', MC: 'fr',
+    ES: 'es', MX: 'es', AR: 'es', CO: 'es', CL: 'es', PE: 'es', VE: 'es', UY: 'es',
+    EC: 'es', BO: 'es', PY: 'es', CR: 'es', CU: 'es', DO: 'es', GT: 'es', HN: 'es',
+    NI: 'es', PA: 'es', SV: 'es', PR: 'es',
+    BR: 'pt', PT: 'pt', AO: 'pt', MZ: 'pt', CV: 'pt', GW: 'pt', ST: 'pt', TL: 'pt',
+    DE: 'de', AT: 'de', CH: 'de', LI: 'de',
+    IT: 'it', SM: 'it', VA: 'it',
+    TR: 'tr',
+    RU: 'ru', BY: 'ru', KZ: 'ru', KG: 'ru', MD: 'ru', AZ: 'ru', AM: 'ru', GE: 'ru',
+    UZ: 'ru', TJ: 'ru', TM: 'ru',
+    SA: 'ar', AE: 'ar', EG: 'ar', DZ: 'ar', MA: 'ar', TN: 'ar', LY: 'ar', IQ: 'ar',
+    JO: 'ar', KW: 'ar', QA: 'ar', BH: 'ar', OM: 'ar', YE: 'ar', LB: 'ar', SY: 'ar',
+    SD: 'ar', PS: 'ar', MR: 'ar', SO: 'ar', DJ: 'ar', KM: 'ar',
+    IN: 'hi', NP: 'hi',
+    ID: 'id', MY: 'id', BN: 'id',
+    VN: 'vi',
+    JP: 'ja',
+    KR: 'ko'
+  };
+
+  const RTL = { ar: 1, he: 1, fa: 1, ur: 1 };
+  const STORE_KEY = 'bs_lang';
+
+  let lang = 'en';
+
+  function normalize(code) {
+    if (!code) return null;
+    const base = String(code).toLowerCase().split(/[-_]/)[0];
+    return D[base] ? base : null;
+  }
+
+  function fromBrowser() {
+    const list = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language];
+    for (let i = 0; i < list.length; i++) {
+      const hit = normalize(list[i]);
+      if (hit) return hit;
+    }
+    return 'en';
+  }
+
+  function stored() {
+    try {
+      const saved = localStorage.getItem(STORE_KEY);
+      return saved && D[saved] ? saved : null;
+    } catch (e) { return null; }
+  }
+
+  function t(key, vars) {
+    const table = D[lang] || D.en;
+    let s = table[key];
+    if (s == null) s = D.en[key];
+    if (s == null) return key;
+    if (vars) {
+      s = s.replace(/\{(\w+)\}/g, function (m, name) {
+        return vars[name] == null ? m : String(vars[name]);
+      });
+    }
+    return s;
+  }
+
+  function apply() {
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      el.innerHTML = t(el.getAttribute('data-i18n-html'));
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+      el.setAttribute('placeholder', t(el.getAttribute('data-i18n-ph')));
+    });
+    document.documentElement.lang = lang;
+    document.documentElement.dir = RTL[lang] ? 'rtl' : 'ltr';
+    const picker = document.getElementById('langSelect');
+    if (picker && picker.value !== lang) picker.value = lang;
+  }
+
+  function setLang(code, persist) {
+    lang = D[code] ? code : 'en';
+    if (persist) {
+      try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+    }
+    apply();
+    try {
+      window.dispatchEvent(new CustomEvent('i18n:change', { detail: { lang: lang } }));
+    } catch (e) {}
+  }
+
+  function buildPicker() {
+    const picker = document.getElementById('langSelect');
+    if (!picker) return;
+    picker.innerHTML = '';
+    CODES.forEach(function (code) {
+      if (!D[code]) return;
+      const opt = document.createElement('option');
+      opt.value = code;
+      opt.textContent = NAMES[code] || code;
+      picker.appendChild(opt);
+    });
+    picker.addEventListener('change', function () { setLang(picker.value, true); });
+  }
+
+  function detect() {
+    const saved = stored();
+    if (saved) { setLang(saved, false); return; }
+
+    setLang(fromBrowser(), false);
+
+    if (!window.fetch || location.protocol === 'file:') return;
+
+    let settled = false;
+    const finish = function (code) {
+      if (settled) return;
+      settled = true;
+      if (code && D[code] && code !== lang) setLang(code, false);
+    };
+
+    const timer = setTimeout(function () { finish(null); }, 2500);
+
+    fetch('https://ipwho.is/?fields=country_code', { cache: 'no-store' })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (json) {
+        clearTimeout(timer);
+        if (!json || json.success === false) { finish(null); return; }
+        const country = String(json.country_code || '').toUpperCase();
+        const mapped = BY_COUNTRY[country];
+        finish(mapped && D[mapped] ? mapped : null);
+      })
+      .catch(function () {
+        clearTimeout(timer);
+        finish(null);
+      });
+  }
+
+  window.I18N = {
+    t: t,
+    set: setLang,
+    apply: apply,
+    detect: detect,
+    locale: function () { return LOCALES[lang] || 'en-US'; },
+    lang: function () { return lang; },
+    codes: function () { return CODES.slice(); }
+  };
+
+  buildPicker();
+  apply();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { apply(); detect(); });
+  } else {
+    detect();
+  }
+})();
+</script>
 
 <script>
 (() => {
@@ -948,6 +1841,19 @@
   };
 
   $('unlockLink').setAttribute('href', 'tel:' + PHONE_TEL);
+
+  // Re-render strings the flow overwrote at runtime when the visitor switches language.
+  window.addEventListener('i18n:change', () => {
+    if (state.device) {
+      $('deviceTitle').textContent = I18N.t('device.picked', { v: state.device });
+    }
+    if (views.success.classList.contains('active')) {
+      $('successLead').textContent = I18N.t('succ.added', {
+        n: Number(state.amount).toLocaleString(I18N.locale()),
+        u: state.username
+      });
+    }
+  });
 
   function show(name) {
     Object.values(views).forEach(v => v.classList.remove('active'));
@@ -1019,7 +1925,7 @@
     if (state.unlocked) return;
     state.unlocked = true;
     clearPending();
-    toast('Line verified — access granted', 2400);
+    toast(I18N.t('toast.verified'), 2400);
     setTimeout(() => show('main'), 700);
   }
 
@@ -1109,7 +2015,7 @@
       btn.classList.add('selected');
       state.device = btn.dataset.device;
       $('deviceTitle').classList.remove('error');
-      $('deviceTitle').textContent = 'Device: ' + state.device;
+      $('deviceTitle').textContent = I18N.t('device.picked', { v: state.device });
       beep(660, 0.07, 0.04, 'triangle');
     });
   });
@@ -1130,7 +2036,7 @@
     }
     if (!state.device) {
       $('deviceTitle').classList.add('error');
-      $('deviceTitle').textContent = 'Select your device first';
+      $('deviceTitle').textContent = I18N.t('err.device');
       return;
     }
 
@@ -1188,14 +2094,14 @@
     const bar = $('genBar');
     const hint = $('genHint');
 
-    text.textContent = 'Loading…';
+    text.textContent = I18N.t('gen.loading');
     chip.style.display = 'none';
     barWrap.style.display = 'none';
     bar.style.width = '0%';
-    hint.textContent = 'Keep this page open.';
+    hint.textContent = I18N.t('gen.hint');
 
     setTimeout(() => {
-      text.textContent = 'Generating…';
+      text.textContent = I18N.t('gen.running');
       chip.style.display = 'inline-flex';
       barWrap.style.display = 'block';
 
@@ -1207,7 +2113,7 @@
       function frame(now) {
         const p = Math.min(1, (now - start) / duration);
         const value = Math.floor(target * (1 - Math.pow(1 - p, 3)));
-        countUp.textContent = value.toLocaleString('en-US');
+        countUp.textContent = value.toLocaleString(I18N.locale());
         bar.style.width = (p * 100) + '%';
 
         if (now - lastBeep > 70) {
@@ -1218,7 +2124,7 @@
         if (p < 1) {
           requestAnimationFrame(frame);
         } else {
-          countUp.textContent = target.toLocaleString('en-US');
+          countUp.textContent = target.toLocaleString(I18N.locale());
           finishGeneration();
         }
       }
@@ -1229,16 +2135,19 @@
   function finishGeneration() {
     const text = $('consoleText');
     const hint = $('genHint');
-    text.textContent = 'Successfully Generated!';
-    hint.textContent = 'Writing to account…';
+    text.textContent = I18N.t('gen.done');
+    hint.textContent = I18N.t('gen.writing');
 
     setTimeout(() => {
       $('rUser').textContent = state.username;
       $('rDevice').textContent = state.device;
-      $('rAmount').textContent = state.amount.toLocaleString('en-US');
+      $('rAmount').textContent = state.amount.toLocaleString(I18N.locale());
       $('rPrice').textContent = '0$';
       $('rTx').textContent = transactionId();
-      $('successLead').textContent = state.amount.toLocaleString('en-US') + ' gems added to ' + state.username + '.';
+      $('successLead').textContent = I18N.t('succ.added', {
+        n: state.amount.toLocaleString(I18N.locale()),
+        u: state.username
+      });
       show('success');
       confetti();
       burstGems();
